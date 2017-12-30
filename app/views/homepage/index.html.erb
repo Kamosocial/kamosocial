@@ -1,0 +1,7 @@
+<h1>Welcome to Comminterest!</h1>
+<p>Join us like them:</p>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+  </tr>
+<% end %>
