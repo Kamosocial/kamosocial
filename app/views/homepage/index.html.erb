@@ -1,15 +1,18 @@
 <h1>Welcome to Comminterest!</h1>
 <p>Join us like them:</p>
 <% @users.each do |user| %>
-  <tr>
-    <td><%= user.username %></td>
-  </tr>
+  <ul>
+    <li><%= user.username %>:<br />
+    <% user.interests.each do |interest| %>
+      <%= interest.name %>
+    <% end %></li>
+  </ul>
 <% end %>
 
 <% @all_interests.each do |interest| %>
-  <tr>
-    <td><%= interest.name %></td>
-  </tr>
+  <ul>
+    <li><%= interest.name %></li>
+  </ul>
 <% end %>
 
 <% if user_signed_in? %>

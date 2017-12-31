@@ -4,9 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, :trackable, :validatable
 
-  validates :username, uniqueness: { case_sensitive: false }
+  has_and_belongs_to_many :interests
+  has_and_belongs_to_many :places
 
-  has_many :interests
+  validates :username, uniqueness: { case_sensitive: false }
+  validates_associated :interests
+
+  accepts_nested_attributes_for :interests
 
   def interests_list=value
     value.split(',').each do |interest|
