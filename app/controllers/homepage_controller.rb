@@ -1,5 +1,6 @@
 class HomepageController < ApplicationController
-  helper_method :resource_name, :resource, :devise_mapping, :resource_class
+  helper_method :resource_name, :resource, :devise_mapping, :resource_class,
+    :user_signed_in, :current_user
 
   def index
     @users = User.all
