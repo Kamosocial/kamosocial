@@ -7,4 +7,14 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
 
   has_many :interests
+
+  def interests_list=value
+    value.split(',').each do |interest|
+      self.interests.build(:name => interest).save
+    end
+  end
+
+  def interests_list
+    self.interests.join(',')
+  end
 end
