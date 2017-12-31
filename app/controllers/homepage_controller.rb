@@ -1,5 +1,5 @@
 class HomepageController < ApplicationController
-  helper_method :resource_name, :resource, :devise_mapping, :resource_class,
+  helper_method :resource_name, :resource, :devise_mapping,
     :user_signed_in, :current_user
 
   def index
@@ -12,10 +12,6 @@ class HomepageController < ApplicationController
 
   def resource
     @resource ||= User.new
-  end
-
-  def resource_class
-    User
   end
 
   def devise_mapping
