@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :confirmable, :trackable, :validatable
 
   validates :username, uniqueness: true
+
+  has_many :interests
 end
