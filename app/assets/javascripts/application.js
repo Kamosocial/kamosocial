@@ -12,4 +12,6 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require leaflet
+//= require main
 //= require_tree .
