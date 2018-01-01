@@ -13,8 +13,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :interests
 
   def interests_list=value
-    value.split(',').each do |interest|
-      self.interests.build(:name => interest).save
+    current_interest = value.split(',').collect{|interest| interest.strip.downcase}.uniq
+    current_interest.each do |interest|
+      self.interests << Interest.find_or_create_by(name: interest)
     end
   end
 
