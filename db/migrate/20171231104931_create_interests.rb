@@ -12,11 +12,13 @@ class CreateInterests < ActiveRecord::Migration[5.1]
       t.string :address
       t.float :latitude
       t.float :longitude
+      t.integer :osm_id
 
       t.timestamps
     end
 
     add_index :interests, :name, unique: true
+    add_index :places, :osm_id, unique: true
 
     create_join_table :interests, :users do |t|
       t.index :interest_id

@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 20171231104931) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.integer "osm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["osm_id"], name: "index_places_on_osm_id", unique: true
   end
 
   create_table "places_users", id: false, force: :cascade do |t|

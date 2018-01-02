@@ -9,8 +9,10 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: { case_sensitive: false }
   validates_associated :interests
+  validates_associated :places
 
   accepts_nested_attributes_for :interests
+  accepts_nested_attributes_for :places
 
   def interests_list=value
     current_interest = value.split(',').collect{|interest| interest.strip.downcase}.uniq
@@ -21,5 +23,17 @@ class User < ApplicationRecord
 
   def interests_list
     self.interests.join(',')
+  end
+
+  def places_list=value
+    current_place = value.split(',').collect{|place| place.strip.downcase}.uniq
+    puts "currents place: #{current_place}"
+    current_place.each do |place|
+      self.places << place.find_or_create_by(name: place)
+    end
+  end
+
+  def places_list
+    self.places.join(',')
   end
 end
