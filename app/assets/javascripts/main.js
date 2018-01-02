@@ -16,7 +16,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
 }).addTo(mymap);
 
-//const map = new L.Map('map');
 mymap.addControl(searchControl);
 
 mymap.on('geosearch/showlocation', function(event){
