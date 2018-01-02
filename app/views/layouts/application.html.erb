@@ -4,15 +4,13 @@
     <title>Comminterest</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'leaflet', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'main', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'leaflet', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'main', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'leaflet', media: 'all' %>
+    <%= javascript_include_tag 'leaflet' %>
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require leaflet
- *= require main
  *= require_tree .
  *= require_self
  */
