@@ -13,7 +13,7 @@ function addPlaceButton() {
 function popupCallback({query, result}) {
   var event = new CustomEvent('custom/openedPopup', { detail: result });
   window.dispatchEvent(event);
-  return `<div class="popup-label" data-place-label="${result}">${result.label}</div> <br /> <button id="add-place" onclick="${addPlaceButton} addPlaceButton();">Add</button>`
+  return `<div class="popup-label">${result.label}</div> <br /> <button id="add-place" onclick="addPlaceButton()" type=button>Add</button>`
 }
 
 const searchControl = new window.GeoSearch.GeoSearchControl({
@@ -36,18 +36,32 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 mymap.addControl(searchControl);
 
-mymap.on('geosearch/showlocation', function(event){
-  console.log('Got an event: ', event);
-});
-
 var latestPlace = {};
+var addedPlaces = [];
+var places_form = document.getElementById('user_places_list');
+var places_list = document.getElementById('added-places');
+
+function deletePlaceButton(index) {
+  addedPlaces.splice(index, 1);
+  registerState();
+}
+
+function registerState() {
+  places_form.value = JSON.stringify(addedPlaces);
+  places_list.innerHTML = '';
+  for (var i = 0; i < addedPlaces.length; i++) {
+    var new_place_label = document.createElement('li');
+    new_place_label.innerHTML = `${addedPlaces[i].label} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
+    places_list.appendChild(new_place_label);
+  }
+}
 
 window.addEventListener('custom/openedPopup', function (e) {
-  console.log('Receivd opened popup event: ', e);
   latestPlace = e.detail;
 }, false);
 
 window.addEventListener('custom/addedPlace', function (e) {
-  console.log('Received add place event, going to add ', latestPlace);
-  console.log(e);
+  addedPlaces.push(latestPlace);
+  registerState();
+  console.log(addedPlaces);
 }, false);

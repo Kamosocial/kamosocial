@@ -5,6 +5,7 @@ class HomepageController < ApplicationController
   def index
     @users = User.all
     @all_interests = Interest.all
+    @all_places = Place.all
   end
 
   def resource_name
