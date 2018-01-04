@@ -6,6 +6,11 @@ class HomepageController < ApplicationController
     @users = User.all
     @all_interests = Interest.all
     @all_places = Place.all
+    gon.places = @all_places.collect do |place|
+      interests = place.interests.collect { |interest| interest.name }
+      {interests: interests.uniq,
+      place: place}
+    end
   end
 
   def resource_name

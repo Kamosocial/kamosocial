@@ -25,7 +25,7 @@ const searchControl = new window.GeoSearch.GeoSearchControl({
   keepResult: true
 });
 
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+var mymap = L.map('mapid').setView([46.453, 3.318], 6);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -35,6 +35,18 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 
 mymap.addControl(searchControl);
+
+// Populate markers with already registered places
+if (gon) {
+  const places = gon.places;
+  for (var i = 0; i < places.length; i++) {
+    let place = places[i].place;
+    let interests = places[i].interests;
+    L.marker([place.latitude, place.longitude]).addTo(mymap)
+      .bindPopup(`<div class="popup-label">${place.name}:<br /> ${interests}</div> <br /> <button id="add-place" onclick="addPlaceButton()" type=button>Add</button>`)
+      .on('popupopen', function(event) { console.log(`Popup open for ${place.name}`); latestPlace = place });
+  }
+}
 
 var latestPlace = {};
 var addedPlaces = [];
@@ -51,7 +63,14 @@ function registerState() {
   places_list.innerHTML = '';
   for (var i = 0; i < addedPlaces.length; i++) {
     var new_place_label = document.createElement('li');
-    new_place_label.innerHTML = `${addedPlaces[i].label} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
+    // If from the app
+    if(addedPlaces[i].address) {
+      new_place_label.innerHTML = `${addedPlaces[i].address} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
+    }
+    // If from OpenStreetMap GeoSearch directly
+    else {
+      new_place_label.innerHTML = `${addedPlaces[i].label} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
+    }
     places_list.appendChild(new_place_label);
   }
 }
