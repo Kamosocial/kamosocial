@@ -6,12 +6,24 @@
     <% user.interests.each do |interest| %>
       <%= interest.name %>
     <% end %></li>
+    <% user.places.each do |place| %>
+      <%= place.name %>
+    <% end %></li>
   </ul>
 <% end %>
 
 <% @all_interests.each do |interest| %>
   <ul>
     <li><%= interest.name %></li>
+  </ul>
+<% end %>
+
+<% @all_places.each do |place| %>
+  <ul>
+    <li><%= place.name %></li>
+    <% place.interests.each do |interest| %>
+      <%= interest.name %>
+    <% end %>
   </ul>
 <% end %>
 
@@ -22,7 +34,6 @@
   </p>
 <% end %>
 
-<div id="mapid"></div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <h3>Add interests</h3>
@@ -32,10 +43,16 @@
     <%= f.text_field :interests_list %>
   </div>
 
-  <div class="field">
+  <div id="places-field">
     <%= f.label :places %><br />
     <%= f.text_field :places_list %>
   </div>
+
+  <h3>Add places</h3>
+  <div id="mapid"></div>
+
+  <ul id="added-places">
+  </ul>
 
   <% if !user_signed_in? %>
     <h3>Sign up</h3>

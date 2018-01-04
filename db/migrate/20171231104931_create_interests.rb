@@ -12,7 +12,7 @@ class CreateInterests < ActiveRecord::Migration[5.1]
       t.string :address
       t.float :latitude
       t.float :longitude
-      t.integer :osm_id
+      t.integer :osm_id, limit: 8
 
       t.timestamps
     end

@@ -1,1 +1,8 @@
-#mapid { height: 500px; }
+#mapid {
+  height: 700px;
+  width: 700px;
+}
+
+#places-field {
+  display: none;
+}
