@@ -21,6 +21,9 @@
 <% @all_places.each do |place| %>
   <ul>
     <li><%= place.name %></li>
+    <% place.interests.each do |interest| %>
+      <%= interest.name %>
+    <% end %>
   </ul>
 <% end %>
 
