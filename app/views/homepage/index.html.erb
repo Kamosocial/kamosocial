@@ -19,7 +19,7 @@
 
       <div class="i mv3 lh-copy">Add a list of your interests in English, separated by commas ",".<br/> Please order them by order of preference (most important first!).</div>
 
-      <div class="field">
+      <div class="field pv2">
         <%= f.label :interests %><br />
         <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
       </div>
@@ -51,17 +51,17 @@
 
           <%= devise_error_messages! %>
 
-          <div class="field">
+          <div class="field pv2">
             <%= f.label :email, "Email (will be kept private)" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "johndoe@example.com" %>
           </div>
 
-          <div class="field">
+          <div class="field pv2">
             <%= f.label :username, "Username (will be displayed to other users)" %><br />
             <%= f.text_field :username, placeholder: "JohnDoe" %>
           </div>
 
-          <div class="field">
+          <div class="field pv2">
             <%= f.label :password %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -69,7 +69,7 @@
             <%= f.password_field :password, autocomplete: "off" %>
           </div>
 
-          <div class="field">
+          <div class="field pv2">
             <%= f.label :password_confirmation %><br />
             <%= f.password_field :password_confirmation, autocomplete: "off" %>
           </div>
