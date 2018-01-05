@@ -63,14 +63,14 @@ function registerState() {
   places_list.innerHTML = '';
   for (var i = 0; i < addedPlaces.length; i++) {
     var new_place_label = document.createElement('li');
-    // If from the app
-    if(addedPlaces[i].address) {
-      new_place_label.innerHTML = `${addedPlaces[i].address} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
-    }
-    // If from OpenStreetMap GeoSearch directly
-    else {
-      new_place_label.innerHTML = `${addedPlaces[i].label} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
-    }
+    new_place_label.className = 'bg-lightest-blue black pa3 mv3 relative';
+    // Wether from OpenStreetMap directly or from the app
+    var full_address = addedPlaces[i].address || addedPlaces[i].label;
+    full_address_array = full_address.split(',');
+    name = full_address_array.splice(0, 1);
+    address = full_address_array.join();
+
+    new_place_label.innerHTML = `<span class="b">${name}</span> ${address}<button class="absolute top-0 right-0 dim pointer" type=button onclick="deletePlaceButton(${i})">X</button>`;
     places_list.appendChild(new_place_label);
   }
 }

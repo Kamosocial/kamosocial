@@ -4,11 +4,17 @@ html {
 
 #mapid {
   height: 700px;
-  width: 700px;
 }
 
 input {
   width: 350px;
+}
+
+#added-places button {
+  background-color: #357edd;
+  color: #f6fffe;
+  border: none;
+  padding: 10px 15px;
 }
 
 input[type=submit] {
