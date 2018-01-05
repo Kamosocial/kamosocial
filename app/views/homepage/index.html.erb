@@ -19,6 +19,13 @@
 
       <div class="i mv3 lh-copy">Add a list of your interests in English, separated by commas ",".<br/> Please order them by order of preference (most important first!).</div>
 
+      <div class="i mv3 lh-copy">You may pick from these most recent interests:</div>
+      <ul class="list">
+        <% @interests_sample.each do |interest| %>
+          <li class="dib bg-blue washed-blue pa2 mv1"><%= interest.name %></li>
+        <% end %>
+      </ul>
+
       <div class="field pv2">
         <%= f.label :interests %><br />
         <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
