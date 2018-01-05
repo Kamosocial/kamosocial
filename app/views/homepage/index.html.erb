@@ -1,31 +1,5 @@
-<h1>Welcome to Comminterest!</h1>
-<p>Join us like them:</p>
-<% @users.each do |user| %>
-  <ul>
-    <li><%= user.username %>:<br />
-    <% user.interests.each do |interest| %>
-      <%= interest.name %>
-    <% end %></li>
-    <% user.places.each do |place| %>
-      <%= place.name %>
-    <% end %></li>
-  </ul>
-<% end %>
-
-<% @all_interests.each do |interest| %>
-  <ul>
-    <li><%= interest.name %></li>
-  </ul>
-<% end %>
-
-<% @all_places.each do |place| %>
-  <ul>
-    <li><%= place.name %></li>
-    <% place.interests.each do |interest| %>
-      <%= interest.name %>
-    <% end %>
-  </ul>
-<% end %>
+<h1 class="f1">Welcome to Comminterest!</h1>
+<p class="f3">Meet people of the same interests by following 3 simple steps!</p>
 
 <% if user_signed_in? %>
   <p>
@@ -36,7 +10,7 @@
 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <h3>Add interests</h3>
+  <h3 class="f4">Add interests</h3>
 
   <div class="field">
     <%= f.label :interests %><br />
@@ -47,14 +21,16 @@
     <%= f.hidden_field :places_list %>
   </div>
 
-  <h3>Add places</h3>
-  <div id="mapid"></div>
+  <div class="mw bg-blue pa2 items-center">
+    <h3 class="f4">Add places</h3>
+    <div id="mapid"></div>
 
-  <ul id="added-places">
-  </ul>
+    <ul id="added-places">
+    </ul>
+  </div>
 
   <% if !user_signed_in? %>
-    <h3>Sign up</h3>
+    <h3 class="f4">Sign up</h3>
 
       <%= devise_error_messages! %>
 
