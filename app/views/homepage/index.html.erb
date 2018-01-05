@@ -1,65 +1,77 @@
-<h1 class="f1">Welcome to Comminterest!</h1>
-<p class="f3">Meet people of the same interests by following 3 simple steps!</p>
+<div class="bg-lightest-blue black pa4">
+  <div class="mw7 center">
+  <h1 class="f1">Welcome to Comminterest!</h1>
+  <p class="f3">Meet people of the same interests by following 3 simple steps!</p>
 
-<% if user_signed_in? %>
-  <p>
-    Signed in as <%= current_user.username %>
-   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </p>
-<% end %>
-
+  <% if user_signed_in? %>
+    <p>
+      Signed in as <%= current_user.username %>
+     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    </p>
+  <% end %>
+  </div>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <h3 class="f4">Add interests</h3>
+  <div class="bg-lightest-blue black pa4">
+    <div class="mw7 center">
+      <h3 class="f4 pv2">Add interests</h3>
 
-  <div class="field">
-    <%= f.label :interests %><br />
-    <%= f.text_field :interests_list %>
+      <div class="field">
+        <%= f.label :interests %><br />
+        <%= f.text_field :interests_list %>
+      </div>
+    </div>
   </div>
 
   <div id="places-field">
     <%= f.hidden_field :places_list %>
   </div>
 
-  <div class="mw bg-blue pa2 items-center">
-    <h3 class="f4">Add places</h3>
-    <div id="mapid"></div>
+  <div class="bg-blue washed-blue pa4">
+    <div class="mw7 center">
+      <h3 class="f4 pv2">Add places</h3>
+      <div id="mapid"></div>
 
-    <ul id="added-places">
-    </ul>
+      <ul id="added-places">
+      </ul>
+    </div>
   </div>
 
-  <% if !user_signed_in? %>
-    <h3 class="f4">Sign up</h3>
+  <div class="bg-lightest-blue black pa4">
+    <div class="mw7 center">
+      <% if !user_signed_in? %>
+        <h3 class="f4 pv2">Sign up</h3>
 
-      <%= devise_error_messages! %>
+          <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :username %><br />
+            <%= f.text_field :username %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
       </div>
-
-      <div class="field">
-        <%= f.label :username %><br />
-        <%= f.text_field :username %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+    </div>
   </div>
-
 <% end %>
