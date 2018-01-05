@@ -7,3 +7,15 @@ html {
   width: 700px;
 }
 
+input {
+  width: 350px;
+}
+
+input[type=submit] {
+  background-color: #357edd;
+  color: #f6fffe;
+  border: none;
+  padding: 15px 80px;
+  margin-top: 20px;
+  cursor: pointer;
+}
