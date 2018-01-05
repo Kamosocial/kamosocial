@@ -15,7 +15,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="bg-lightest-blue black pa4">
     <div class="mw7 center">
-      <h3 class="f4 pv2">Add interests</h3>
+      <h3 class="f4 pv2">1. Add interests</h3>
+
+      <div class="i mv3 lh-copy">Add a list of your interests in English, separated by commas ",".<br/> Please order them by order of preference (most important first!).</div>
 
       <div class="field">
         <%= f.label :interests %><br />
@@ -30,7 +32,10 @@
 
   <div class="bg-blue washed-blue pa4">
     <div class="mw7 center">
-      <h3 class="f4 pv2">Add places</h3>
+      <h3 class="f4 pv2">2. Add places</h3>
+
+      <div class="i mv3 lh-copy">Add places near where you live and where you would like to meet people regularly on a weekly basis.<br/> You can search by name for places you already know, or simply add those which are already displayed and where there are already other people.</div>
+
       <div id="mapid"></div>
 
       <ul id="added-places">
@@ -41,7 +46,8 @@
   <div class="bg-lightest-blue black pa4">
     <div class="mw7 center">
       <% if !user_signed_in? %>
-        <h3 class="f4 pv2">Sign up</h3>
+        <h3 class="f4 pv2">3. Sign up</h3>
+          <div class="i mv3 lh-copy">Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people!</div>
 
           <%= devise_error_messages! %>
 
