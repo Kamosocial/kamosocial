@@ -1,5 +1,3 @@
-console.log('Hey!');
-
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
@@ -10,10 +8,21 @@ function addPlaceButton() {
   window.dispatchEvent(event);
 }
 
+function popupTemplate(source, place, interests) {
+  var full_address = place.address || place.label;
+  var full_address_array = full_address.split(',');
+  var name = full_address_array.splice(0, 1);
+  var address = full_address_array.join();
+  var popup = `<div class="popup-label w5"><span class="b">${name}</span><br />${address}<br />`;
+  popup += interests != undefined ? `<span class="i dib mt2">People\'s interests:</span><br /><span class="i dib pb1 mb1">${interests.join(', ')}</span></div>` : `</div>`
+  popup += `<button class="bg-blue washed-blue bn pa2 mv2 center pointer dim" id="add-place" onclick="addPlaceButton()" type=button>Add</button>`
+  return popup
+}
+
 function popupCallback({query, result}) {
   var event = new CustomEvent('custom/openedPopup', { detail: result });
   window.dispatchEvent(event);
-  return `<div class="popup-label">${result.label}</div> <br /> <button id="add-place" onclick="addPlaceButton()" type=button>Add</button>`
+  return popupTemplate('osm', result);
 }
 
 const searchControl = new window.GeoSearch.GeoSearchControl({
@@ -43,8 +52,8 @@ if (gon) {
     let place = places[i].place;
     let interests = places[i].interests;
     L.marker([place.latitude, place.longitude]).addTo(mymap)
-      .bindPopup(`<div class="popup-label">${place.name}:<br /> ${interests}</div> <br /> <button id="add-place" onclick="addPlaceButton()" type=button>Add</button>`)
-      .on('popupopen', function(event) { console.log(`Popup open for ${place.name}`); latestPlace = place });
+      .bindPopup(popupTemplate('app', place, interests))
+      .on('popupopen', function(event) { latestPlace = place });
   }
 }
 
@@ -63,14 +72,14 @@ function registerState() {
   places_list.innerHTML = '';
   for (var i = 0; i < addedPlaces.length; i++) {
     var new_place_label = document.createElement('li');
-    // If from the app
-    if(addedPlaces[i].address) {
-      new_place_label.innerHTML = `${addedPlaces[i].address} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
-    }
-    // If from OpenStreetMap GeoSearch directly
-    else {
-      new_place_label.innerHTML = `${addedPlaces[i].label} <button type=button onclick="deletePlaceButton(${i})">X</button>`;
-    }
+    new_place_label.className = 'bg-lightest-blue black pa3 mv3 relative';
+    // Wether from OpenStreetMap directly or from the app
+    var full_address = addedPlaces[i].address || addedPlaces[i].label;
+    full_address_array = full_address.split(',');
+    name = full_address_array.splice(0, 1);
+    address = full_address_array.join();
+
+    new_place_label.innerHTML = `<span class="b">${name}</span> ${address}<button class="absolute top-0 right-0 dim pointer" type=button onclick="deletePlaceButton(${i})">X</button>`;
     places_list.appendChild(new_place_label);
   }
 }
@@ -82,5 +91,12 @@ window.addEventListener('custom/openedPopup', function (e) {
 window.addEventListener('custom/addedPlace', function (e) {
   addedPlaces.push(latestPlace);
   registerState();
-  console.log(addedPlaces);
+}, false);
+
+// Allow to add interests directly to input
+var interests_items = document.querySelector('#interests-list');
+var interests_input = document.querySelector('#user_interests_list');
+
+interests_items.addEventListener('click', function (e) {
+  interests_input.value += interests_input.value == '' ? `${e.target.textContent}` : `, ${e.target.textContent}`;
 }, false);

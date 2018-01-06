@@ -3,7 +3,7 @@
   <head>
     <title>Comminterest</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'leaflet', media: 'all' %>
     <%= javascript_include_tag 'leaflet' %>
@@ -11,6 +11,7 @@
 
   <body>
     <%= yield %>
+    <%= render "shared/footer" %>
     <%= include_gon %>
     <%= javascript_include_tag 'application' %>
   </body>

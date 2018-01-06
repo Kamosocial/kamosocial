@@ -3,8 +3,7 @@ class HomepageController < ApplicationController
     :user_signed_in, :current_user
 
   def index
-    @users = User.all
-    @all_interests = Interest.all
+    @interests_sample = Interest.limit(10)
     @all_places = Place.all
     gon.places = @all_places.collect do |place|
       interests = place.interests.collect { |interest| interest.name }
