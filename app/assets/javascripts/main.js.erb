@@ -95,3 +95,11 @@ window.addEventListener('custom/addedPlace', function (e) {
   registerState();
   console.log(addedPlaces);
 }, false);
+
+// Allow to add interests directly to input
+var interests_items = document.querySelector('#interests-list');
+var interests_input = document.querySelector('#user_interests_list');
+
+interests_items.addEventListener('click', function (e) {
+  interests_input.value += interests_input.value == '' ? `${e.target.textContent}` : `, ${e.target.textContent}`;
+}, false);

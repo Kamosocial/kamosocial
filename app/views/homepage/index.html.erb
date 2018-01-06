@@ -20,7 +20,7 @@
       <div class="i mv3 lh-copy">Add a list of your interests in English, separated by commas ",".<br/> Please order them by order of preference (most important first!).</div>
 
       <div class="i mv3 lh-copy">You may pick from these most recent interests:</div>
-      <ul class="list">
+      <ul id="interests-list" class="list">
         <% @interests_sample.each do |interest| %>
           <li class="dib bg-blue washed-blue pa2 mv1"><%= interest.name %></li>
         <% end %>

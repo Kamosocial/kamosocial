@@ -2,6 +2,10 @@ html {
   font-family: 'helvetica neue', helvetica, sans-serif;
 }
 
+#interests-list li {
+  cursor: pointer;
+}
+
 #mapid {
   height: 700px;
 }
