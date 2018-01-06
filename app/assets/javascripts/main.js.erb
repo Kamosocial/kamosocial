@@ -25,12 +25,23 @@ function popupCallback({query, result}) {
   return popupTemplate('osm', result);
 }
 
+const icon_url = new L.Icon({
+              iconUrl: '<%= image_path 'marker-icon.png' %>',
+              retinaUrl: '<%= image_path 'marker-icon-2x.png' %>',
+              shadowUrl: '<%= image_path 'marker-shadow.png' %>',
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+              shadowSize: [41, 41]
+            });
+
 const searchControl = new window.GeoSearch.GeoSearchControl({
   provider: provider,
   showPopup: true,
   popupFormat: popupCallback,
   style: 'bar',
   maxMarkers: 5,
+  marker: { icon: icon_url  },
   keepResult: true
 });
 
@@ -51,7 +62,7 @@ if (gon) {
   for (var i = 0; i < places.length; i++) {
     let place = places[i].place;
     let interests = places[i].interests;
-    L.marker([place.latitude, place.longitude]).addTo(mymap)
+    L.marker([place.latitude, place.longitude], { icon: icon_url  }).addTo(mymap)
       .bindPopup(popupTemplate('app', place, interests))
       .on('popupopen', function(event) { latestPlace = place });
   }
