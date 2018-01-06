@@ -1,5 +1,3 @@
-console.log('Hey!');
-
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
@@ -55,7 +53,7 @@ if (gon) {
     let interests = places[i].interests;
     L.marker([place.latitude, place.longitude]).addTo(mymap)
       .bindPopup(popupTemplate('app', place, interests))
-      .on('popupopen', function(event) { console.log(`Popup open for ${place.name}`); latestPlace = place });
+      .on('popupopen', function(event) { latestPlace = place });
   }
 }
 
@@ -93,7 +91,6 @@ window.addEventListener('custom/openedPopup', function (e) {
 window.addEventListener('custom/addedPlace', function (e) {
   addedPlaces.push(latestPlace);
   registerState();
-  console.log(addedPlaces);
 }, false);
 
 // Allow to add interests directly to input
