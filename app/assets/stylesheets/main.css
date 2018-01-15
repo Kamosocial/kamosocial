@@ -1,11 +1,6 @@
 @font-face {
   font-family: 'indie_flowerregular';
-  src: url('fonts/IndieFlower-webfont.eot');
-  src: url('fonts/IndieFlower-webfont.eot?#iefix') format('embedded-opentype'),
-       url('fonts/IndieFlower-webfont.woff2') format('woff2'),
-       url('fonts/IndieFlower-webfont.woff') format('woff'),
-       url('fonts/IndieFlower-webfont.ttf') format('truetype'),
-       url('fonts/IndieFlower-webfont.svg#indie_flowerregular') format('svg');
+  src: url('fonts/IndieFlower-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
