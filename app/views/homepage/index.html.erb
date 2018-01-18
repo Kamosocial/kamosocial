@@ -41,10 +41,16 @@
     <%= f.label :interests %><br />
     <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
   </div>
-  <h3>2. Add places</h3>
-  <p>Add places near where you live and where you would like to meet people regularly on a regular basis. Weekly, Monthly, it is up to you to arrange yourself. ;)</p>
-  <p>You can search by name for places you already know, or simply add those which are already displayed and where there are already other people meeting.</p>
-  <div id="mapid"></div>
+
+  <div id="places-section">
+    <h3>2. Add places</h3>
+    <p>Add places near where you live and where you would like to meet people regularly on a regular basis. Weekly, Monthly, it is up to you to arrange yourself. ;)</p>
+    <p>You can search by name for places you already know, or simply add those which are already displayed and where there are already other people meeting.</p>
+    <%= f.hidden_field :places_list %>
+    <div id="mapid"></div>
+    <ul id="added-places">
+  </div>
+
   <h3>3. Sign up</h3>
   <p>Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people around you!</p>
 <% end %>

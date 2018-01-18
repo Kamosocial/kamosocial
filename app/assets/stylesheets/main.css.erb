@@ -32,7 +32,9 @@ h2 {
 }
 
 h3 {
+  font-size: 1.6rem;
   color: #F4D35E;
+  margin: 60px auto 10px;
 }
 
 header {
@@ -79,7 +81,7 @@ ul {
 
 #explanation-container {
   display: flex;
-  height: 300px;
+  height: 200px;
 }
 
 #explanation-container div {
@@ -97,7 +99,7 @@ ul {
   max-width: 800px;
 }
 
-#new_user #interests-list li {
+#interests-section #interests-list li {
   display: inline-block;
   padding: 15px 25px;
   margin: 10px;
@@ -106,6 +108,11 @@ ul {
   color: #1B998A;
   border-radius: 7px;
   cursor: pointer;
+}
+
+#interests-section #interests-list li:hover {
+  color: white;
+  background-color: #1B998A;
 }
 
 #interests-section label {
@@ -122,9 +129,78 @@ ul {
   text-align: center;
 }
 
-#new_user #interests-list li:hover {
-  color: white;
+#places-section #mapid {
+  height: 600px;
+  width: 100%;
+}
+
+#places-section ul {
+  padding: 0;
+  margin: 30px 0;
+}
+
+#places-section li {
+  max-width: 1200px;
+  margin: 25px auto;
+  position: relative
+}
+
+#places-section li button {
   background-color: #1B998A;
+  border: none;
+  padding: 4px 11px 6px 12px;
+  margin-left: 15px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: absolute;
+  top: -4px;
+  right: -54px;
+}
+
+#places-section li button:hover {
+  top: -3px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
+#places-section #mapid {
+  margin: 45px 0;
+}
+
+#added-places .name, .popup-label .name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1B998A;
+}
+
+.popup-label .interests {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.popup-label .address {
+  margin: 7px 0 7px;
+  font-size: 0.65rem;
+}
+
+.popup-label button {
+  background-color: #1B998A;
+  border: none;
+  width: 100%;
+  padding: 4px 11px 6px 12px;
+  margin-top: 7px;
+  border-radius: 7px;
+  color: #F4D35E;
+  cursor: pointer;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.popup-label button:hover {
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  top: 1px;
 }
 /*
 html {
