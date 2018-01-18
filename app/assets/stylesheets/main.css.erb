@@ -6,18 +6,31 @@
 }
 
 html {
-  font-family: 'helvetica neue', helvetica, sans-serif;
+  font-family: 'Open Sans', 'helvetica neue', helvetica, sans-serif;
   text-align: center;
+}
+
+body {
+  margin: 0;
 }
 
 h1, h2, h3 {
   font-family: 'indie_flowerregular', sans-serif;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #F4D35E;
+  margin: 60px auto 10px;
+}
+
 header {
   height: 75px;
-  padding: 20px;
-  background-color: blue;
+  padding: 10px;
 }
 
 #login-button {
@@ -42,13 +55,31 @@ header {
 
 #welcome-section {
   font-family: 'indie_flowerregular', sans-serif;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   margin-top: -96px;
-  padding: 300px 0;
+  padding: 380px 0;
   width: 100%;
-  height: 600px;
+  height: 60px;
   background-color: #F4D35E;
-  z-index: -1;
+  color: #fff;
+  text-shadow: 2px 2px 1px #1B998A;
+}
+
+#explanation-container {
+  display: flex;
+  height: 300px;
+  color: #aaa;
+  letter-spacing: 0.0625em;
+}
+
+#explanation-container div {
+  width: 250px;
+  height: 100px;
+  margin: auto;
+}
+
+#explanation-container img {
+  max-width: 50px;
 }
 
 /*
