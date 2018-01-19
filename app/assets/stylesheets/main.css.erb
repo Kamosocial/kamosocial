@@ -81,8 +81,13 @@ ul {
   text-shadow: 2px 2px 1px #1B998A;
 }
 
+#explanation-section, #places-section p, #signup-section {
+  padding: 0 15px;
+}
+
 #explanation-container {
   display: flex;
+  flex-wrap: wrap;
   height: 200px;
 }
 
@@ -124,8 +129,7 @@ ul {
 #interests-section input {
   box-shadow: 0 5px 10px #ccc;
   border-radius: 25px;
-  max-width: 600px;
-  width: 100%;
+  width: 40%;
   border: none;
   padding: 15px 40px;
   text-align: center;
@@ -142,7 +146,7 @@ ul {
 }
 
 #places-section li {
-  max-width: 1200px;
+  width: 50%;
   margin: 25px auto;
   position: relative
 }
@@ -216,6 +220,7 @@ ul {
   justify-content: center;
   margin-top: 40px;
 }
+
 .sign-up-field label {
   font-weight: bold;
 }
@@ -252,4 +257,46 @@ input[type=submit] {
 input[type=submit]:hover {
   top: 1px;
   box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
+@media all and (max-width: 500px) {
+  html {
+    font-size: 0.9rem;
+    line-height: 1.4em;
+  }
+
+  #welcome-section {
+    padding: 180px 15px;
+    width: calc(100% - 30px);
+    font-size: 1.5rem;
+  }
+
+  #explanation-section {
+    height: 530px;
+  }
+
+  #explanation-container div {
+    width: 250px;
+    height: 150px;
+    margin: 10px auto;
+  }
+
+  #interests-section {
+    padding: 15px 15px;
+  }
+
+  #interests-section #interests-list li {
+    padding: 10px 15px;
+    margin: 8px;
+    font-size: 0.8rem;
+  }
+
+  #login-button {
+    display: none;
+  }
+
+  .sign-up-field input {
+    width: 200px;
+    margin: 20px 0;
+  }
 }
