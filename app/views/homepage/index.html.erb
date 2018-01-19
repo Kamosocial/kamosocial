@@ -51,6 +51,41 @@
     <ul id="added-places">
   </div>
 
-  <h3>3. Sign up</h3>
-  <p>Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people around you!</p>
+  <% if !user_signed_in? %>
+    <div id="signup-section">
+      <h3>3. Sign up</h3>
+      <p>Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people around you!</p>
+      <%= devise_error_messages! %>
+
+      <div id="signup-fields-container">
+        <div class="sign-up-field">
+          <%= f.label :email, "Email" %>
+          <span>(will be kept private)</span><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "johndoe@example.com" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :username, "Username" %>
+          <span>(will be displayed to other users)</span><br />
+          <%= f.text_field :username, placeholder: "JohnDoe" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :password %>
+          <span>(try to use a safe one)</span><br />
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :password_confirmation %>
+          <span>(just to be safe)</span><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= f.submit "Sign up" %>
 <% end %>
