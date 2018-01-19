@@ -23,8 +23,25 @@
   display: inline;
 }
 
-#footer li+li:before {
+#footer .conditions li+li::before {
   content: "-";
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#footer .author li+li::before {
+  content: "|";
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media all and (max-width: 500px) {
+  #footer li {
+    display: inherit;
+  }
+
+  #footer .conditions li+li::before, #footer .author li+li::before{
+    content: none;
+    margin: none
+  }
 }
