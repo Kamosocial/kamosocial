@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/header" %>
+    <div id="container">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= include_gon %>
     <%= javascript_include_tag 'application' %>
