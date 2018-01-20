@@ -23,6 +23,7 @@ h1, h2, h3 {
 h1 {
   font-size: 3rem;
   color: #1B998A;
+  margin: 0;
 }
 
 h2 {
@@ -73,7 +74,7 @@ ul {
 #welcome-section {
   font-family: 'indie_flowerregular', sans-serif;
   font-size: 2.2rem;
-  margin-top: -96px;
+  margin-top: -125px;
   padding: 380px 0;
   width: 100%;
   height: 60px;
@@ -81,6 +82,10 @@ ul {
   background-color: #F4D35E;
   color: #fff;
   text-shadow: 2px 2px 1px #1B998A;
+  /* Picture credits: Photo by Stanford Smith on Unsplash */
+  background-image: linear-gradient(to bottom, rgba(244, 211, 94, 1), rgba(244, 211, 94, 0.5)), url(<%= image_path 'stanford-smith-369293.jpg' %>);
+  background-size: cover;
+  background-position: bottom;
 }
 
 #explanation-section, #places-section p, #signup-section {
