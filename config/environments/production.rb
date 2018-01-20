@@ -72,7 +72,7 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "posteo.de",
+    address: "mail.gandi.net",
     port: 587,
     domain: ENV["EMAIL_DOMAIN"],
     authentication: "plain",
