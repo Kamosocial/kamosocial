@@ -1,0 +1,19 @@
+<p id="preferences-message">Wait for an email inviting you to meet other people based on your interests and places.</p>
+
+<div id="interests-section">
+  <h3>Your interests</h3>
+  <ul id="interests-list">
+    <% @interests.each do |interest| %>
+      <li><%= interest.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="places-section">
+  <h3>Your places</h3>
+  <ul id="added-places">
+    <% @places.each do |place| %>
+      <li><span class="name"><%= place.name %></span> <%= place.address %></li>
+    <% end %>
+  </ul>
+</div>

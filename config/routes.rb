@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'homepage/index'
+  get '/preferences', to: 'preferences#index'
 
   # devise_for :users
   devise_scope :user do
