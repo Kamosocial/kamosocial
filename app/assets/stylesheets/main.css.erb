@@ -10,10 +10,14 @@ html {
   color: #aaa;
   letter-spacing: 0.0625em;
   text-align: center;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2, h3 {
@@ -75,6 +79,10 @@ ul {
   color: #fff;
   text-shadow: 1px 1px 1px #1B998A;
   font-size: 1.2rem;
+}
+
+#container {
+  flex: 1 0 auto;
 }
 
 #login-button, #logout-button {
