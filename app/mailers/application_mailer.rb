@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'comminterest@posteo.net'
+  default from: 'hello@kamo.social'
   layout 'mailer'
 end

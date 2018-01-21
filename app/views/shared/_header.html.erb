@@ -1,0 +1,10 @@
+<header>
+  <h1>Kamo.social</h1>
+  <% if user_signed_in? %>
+    <span id="username">Signed in as <%= current_user.username %></span>
+   <%= link_to('Log out', destroy_user_session_path, method: :delete, id:"logout-button") %>
+  <% else %>
+    <%= link_to "Log in", login_path, id:"login-button" %>
+  <% end %>
+</header>
+

@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Comminterest</title>
+    <title>Kamo.social</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" property="description" content="Meet people with the same interests as you. Or not. It's cool to open your mind as well. :)" />
+    <meta name="twitter:card" property="twitter:card" content="summary" />
+    <meta name="twitter:site" property="twitter:site" content="@KillianKemps" />
+    <meta name="twitter:title" property="twitter:title" content="Kamo.social" />
+    <meta name="twitter:description" property="twitter:description" content="Meet people with the same interests as you. Or not. It's cool to open your mind as well. :)" />
+    <meta name="og:title" property="og:title" content="Kamo.social" />
+    <meta name="og:type" property="og:type" content="website" />
+    <meta name="og:url" property="og:url" content="https://kamo.social" />
+    <meta name="og:description" property="og:description" content="Meet people with the same interests as you. Or not. It's cool to open your mind as well. :)" />
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= stylesheet_link_tag    'leaflet', media: 'all' %>
     <%= javascript_include_tag 'leaflet' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="container">
+      <%= render "shared/header" %>
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= include_gon %>
     <%= javascript_include_tag 'application' %>

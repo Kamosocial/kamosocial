@@ -1,0 +1,348 @@
+@font-face {
+  font-family: 'indie_flowerregular';
+  font-weight: normal;
+  src: url(<%= asset_path 'fonts/IndieFlower-webfont.woff' %>) format('woff');
+  font-style: normal;
+}
+
+html {
+  font-family: 'Open Sans', 'helvetica neue', helvetica, sans-serif;
+  color: #aaa;
+  letter-spacing: 0.0625em;
+  text-align: center;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3 {
+  font-family: 'indie_flowerregular', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+  text-shadow: 4px 4px 1px #1B998A;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #F4D35E;
+  margin: 60px auto 10px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  color: #F4D35E;
+  margin: 100px auto 10px;
+}
+
+header {
+  height: 75px;
+  padding: 25px;
+  background-color: #F4D35E;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.flash {
+  font-style: italic;
+  padding: 30px;
+}
+
+.flash i {
+  margin-right: 10px;
+}
+
+.flash.notice {
+  color: #1B998A;
+}
+
+.flash.alert {
+  color: red;
+}
+
+#username {
+  position: absolute;
+  right: 175px;
+  top: 43px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #1B998A;
+  font-size: 1.2rem;
+}
+
+#container {
+  flex: 1 0 auto;
+}
+
+#login-button, #logout-button {
+  font-family: 'indie_flowerregular', sans-serif;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  background-color: #1B998A;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#login-button:hover, #logout-button:hover {
+  top: 31px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
+#welcome-section {
+  font-family: 'indie_flowerregular', sans-serif;
+  font-size: 2.2rem;
+  margin-top: -125px;
+  padding: 380px 0;
+  width: 100%;
+  height: 60px;
+  color: #1B998A;
+  background-color: #F4D35E;
+  color: #fff;
+  text-shadow: 2px 2px 1px #1B998A;
+  /* Picture credits: Photo by Stanford Smith on Unsplash */
+  background-image: linear-gradient(to bottom, rgba(244, 211, 94, 1), rgba(244, 211, 94, 0.5)), url(<%= image_path 'stanford-smith-369293.jpg' %>);
+  background-size: cover;
+  background-position: bottom;
+}
+
+#explanation-section, #places-section p, #signup-section {
+  padding: 0 15px;
+}
+
+#explanation-container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 200px;
+}
+
+#explanation-container div {
+  width: 250px;
+  height: 100px;
+  margin: auto;
+}
+
+#explanation-container img {
+  max-width: 50px;
+}
+
+#new_user p {
+  margin: 15px auto;
+  max-width: 800px;
+}
+
+#interests-section #interests-list li {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 10px;
+  font-weight: bold;
+  border: 2px solid #1B998A;
+  color: #1B998A;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+#interests-section #interests-list li:hover {
+  color: white;
+  background-color: #1B998A;
+}
+
+#interests-section label {
+  display: none;
+}
+
+#interests-section input {
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 25px;
+  width: 40%;
+  border: none;
+  padding: 15px 40px;
+  text-align: center;
+}
+
+#places-section #mapid {
+  height: 600px;
+  width: 100%;
+}
+
+#places-section ul {
+  padding: 0;
+  margin: 30px 0;
+}
+
+#places-section li {
+  width: 50%;
+  margin: 25px auto;
+  position: relative
+}
+
+#places-section li button {
+  background-color: #1B998A;
+  border: none;
+  padding: 4px 11px 6px 12px;
+  margin-left: 15px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: absolute;
+  top: -4px;
+  right: -54px;
+}
+
+#places-section li button:hover {
+  top: -3px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
+#places-section #mapid {
+  margin: 45px 0;
+}
+
+#added-places .name, .popup-label .name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1B998A;
+}
+
+.popup-label .interests {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.popup-label .address {
+  margin: 7px 0 7px;
+  font-size: 0.65rem;
+}
+
+.popup-label button {
+  background-color: #1B998A;
+  border: none;
+  width: 100%;
+  padding: 4px 11px 6px 12px;
+  margin-top: 7px;
+  border-radius: 7px;
+  color: #F4D35E;
+  cursor: pointer;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.popup-label button:hover {
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  top: 1px;
+}
+
+#signup-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#signup-fields-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.sign-up-field label {
+  font-weight: bold;
+}
+
+.sign-up-field span {
+  font-size: 0.95rem;
+}
+
+.sign-up-field input {
+  width: 300px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 25px;
+  border: none;
+  padding: 15px 40px;
+  margin: 20px 30px;
+  text-align: center;
+}
+
+input[type=submit] {
+  font-family: 'indie_flowerregular', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  padding: 10px 30px;
+  margin-top: 60px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-color: #1B998A;
+  position: relative;
+}
+
+input[type=submit]:hover {
+  top: 1px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
+@media all and (max-width: 500px) {
+  html {
+    font-size: 0.9rem;
+    line-height: 1.4em;
+  }
+
+  h3 {
+    margin: 60px auto 10px;
+  }
+
+  #welcome-section {
+    padding: 180px 15px;
+    width: calc(100% - 30px);
+    font-size: 1.5rem;
+  }
+
+  #explanation-section {
+    height: 530px;
+  }
+
+  #explanation-container div {
+    width: 250px;
+    height: 150px;
+    margin: 10px auto;
+  }
+
+  #interests-section {
+    padding: 15px 15px;
+  }
+
+  #interests-section #interests-list li {
+    padding: 10px 15px;
+    margin: 8px;
+    font-size: 0.8rem;
+  }
+
+  #login-button {
+    display: none;
+  }
+
+  .sign-up-field input {
+    width: 200px;
+    margin: 20px 0;
+  }
+}

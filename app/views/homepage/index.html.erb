@@ -1,90 +1,95 @@
-<div class="bg-lightest-blue black pa4">
-  <div class="mw7 center">
-  <h1 class="f1">Welcome to Comminterest!</h1>
-  <p class="f3">Meet people of the same interests by following 3 simple steps!</p>
+<div id="welcome-section">
+  <p>
+    Meet people with the same interests as you.<br/>
+    Or not. It's cool to open your mind as well. :)
+  </p>
+</div>
 
-  <% if user_signed_in? %>
-    <p>
-      Signed in as <%= current_user.username %>
-     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    </p>
-  <% end %>
+<div id="explanation-section">
+  <h2>How does it work?</h2>
+  <div id="explanation-container">
+    <div>
+      <img src="<%= image_path 'noun_email.png' %>"/>
+      <p>Receive invitations by email to meet other people and get socializing!</p>
+    </div>
+    <div>
+      <img src="<%= image_path 'noun_cafe.png' %>"/>
+      <p>Meet in bars, cafés or restaurants near where you are or often go</p>
+    </div>
+    <div>
+      <img src="<%= image_path 'noun_privacy.png' %>"/>
+      <p>Give only the necessary data to make it work. No tracking.</p>
+    </div>
   </div>
 </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="bg-lightest-blue black pa4">
-    <div class="mw7 center">
-      <h3 class="f4 pv2">1. Add interests</h3>
-
-      <div class="i mv3 lh-copy">Add a list of your interests in English, separated by commas ",".<br/> Please order them by order of preference (most important first!).</div>
-
-      <div class="i mv3 lh-copy">You may pick from these most recent interests:</div>
-      <ul id="interests-list" class="list">
-        <% @interests_sample.each do |interest| %>
-          <li class="dib bg-blue washed-blue pa2 mv1"><%= interest.name %></li>
-        <% end %>
-      </ul>
-
-      <div class="field pv2">
-        <%= f.label :interests %><br />
-        <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
-      </div>
-    </div>
+  <div id="interests-section">
+    <h3>1. Add interests</h3>
+    <p>Add a list of your interests in English, separated by commas (this ",").<br/> Please try to order them by order of preference, meaning the most important first!.</p>
+    <p>If you wish, you can pick from these most recent interests:</p>
+    <ul id="interests-list">
+      <% @interests_sample.each do |interest| %>
+        <li><%= interest.name %></li>
+      <% end %>
+    </ul>
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
   </div>
 
-  <div id="places-field">
+  <div id="places-section">
+    <h3>2. Add places</h3>
+    <p>Add places near where you live and where you would like to meet people regularly on a regular basis. Weekly, Monthly, it is up to you to arrange yourself. ;)</p>
+    <p>You can search by name for places you already know, or simply add those which are already displayed and where there are already other people meeting.</p>
     <%= f.hidden_field :places_list %>
+    <div id="mapid"></div>
+    <ul id="added-places">
   </div>
 
-  <div class="bg-blue washed-blue pa4">
-    <div class="mw7 center">
-      <h3 class="f4 pv2">2. Add places</h3>
+  <% if !user_signed_in? %>
+    <div id="signup-section">
+      <h3>3. Sign up</h3>
+      <p>Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people around you!</p>
+      <%= devise_error_messages! %>
 
-      <div class="i mv3 lh-copy">Add places near where you live and where you would like to meet people regularly on a weekly basis.<br/> You can search by name for places you already know, or simply add those which are already displayed and where there are already other people.</div>
-
-      <div id="mapid" class="black w-100 h-100"></div>
-
-      <ul id="added-places" class="list w-100 center mv3 ph1 flex flex-column">
-      </ul>
-    </div>
-  </div>
-
-  <div class="bg-lightest-blue black pa4">
-    <div class="mw7 center">
-      <% if !user_signed_in? %>
-        <h3 class="f4 pv2">3. Sign up</h3>
-          <div class="i mv3 lh-copy">Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people!</div>
-
-          <%= devise_error_messages! %>
-
-          <div class="field mw7 pv2 center">
-            <%= f.label :email, "Email (will be kept private)" %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "johndoe@example.com" %>
-          </div>
-
-          <div class="field pv2">
-            <%= f.label :username, "Username (will be displayed to other users)" %><br />
-            <%= f.text_field :username, placeholder: "JohnDoe" %>
-          </div>
-
-          <div class="field pv2">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
-          </div>
-
-          <div class="field pv2">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </div>
+      <% if flash[:notice] %>
+        <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
       <% end %>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
+      <div id="signup-fields-container">
+        <div class="sign-up-field">
+          <%= f.label :email, "Email" %>
+          <span>(will be kept private)</span><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "johndoe@example.com" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :username, "Username" %>
+          <span>(will be displayed to other users)</span><br />
+          <%= f.text_field :username, placeholder: "JohnDoe" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :password %>
+          <span>(try to use a safe one)</span><br />
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="sign-up-field">
+          <%= f.label :password_confirmation %>
+          <span>(just to be safe)</span><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
+  <% if !user_signed_in? %>
+    <%= f.submit "Sign up" %>
+  <% end %>
 <% end %>

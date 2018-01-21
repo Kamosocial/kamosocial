@@ -13,9 +13,9 @@ function popupTemplate(source, place, interests) {
   var full_address_array = full_address.split(',');
   var name = full_address_array.splice(0, 1);
   var address = full_address_array.join();
-  var popup = `<div class="popup-label w5"><span class="b">${name}</span><br />${address}<br />`;
-  popup += interests != undefined ? `<span class="i dib mt2">People\'s interests:</span><br /><span class="i dib pb1 mb1">${interests.join(', ')}</span></div>` : `</div>`
-  popup += `<button class="bg-blue washed-blue bn pa2 mv2 center pointer dim" id="add-place" onclick="addPlaceButton()" type=button>Add</button>`
+  var popup = `<div class="popup-label"><div class="name">${name}</div>`;
+  popup += interests != undefined ? `<span class="interests">${interests.join(', ')}</span>` : ``;
+  popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
   return popup
 }
 
@@ -45,7 +45,10 @@ const searchControl = new window.GeoSearch.GeoSearchControl({
   keepResult: true
 });
 
-var mymap = L.map('mapid').setView([46.453, 3.318], 6);
+var mymap = L.map('mapid', {scrollWheelZoom: false}).setView([46.453, 3.318], 6);
+
+mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
+mymap.on('blur', function() { mymap.scrollWheelZoom.disable(); });
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -83,14 +86,13 @@ function registerState() {
   places_list.innerHTML = '';
   for (var i = 0; i < addedPlaces.length; i++) {
     var new_place_label = document.createElement('li');
-    new_place_label.className = 'bg-lightest-blue black pa3 mv3 relative';
     // Wether from OpenStreetMap directly or from the app
     var full_address = addedPlaces[i].address || addedPlaces[i].label;
     full_address_array = full_address.split(',');
     name = full_address_array.splice(0, 1);
     address = full_address_array.join();
 
-    new_place_label.innerHTML = `<span class="b">${name}</span> ${address}<button class="absolute top-0 right-0 dim pointer" type=button onclick="deletePlaceButton(${i})">X</button>`;
+    new_place_label.innerHTML = `<span class="name">${name}</span> ${address}<button type=button onclick="deletePlaceButton(${i})">x</button>`;
     places_list.appendChild(new_place_label);
   }
 }
