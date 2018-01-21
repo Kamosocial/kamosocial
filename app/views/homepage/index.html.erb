@@ -52,6 +52,13 @@
       <p>Finally, please sign up so you will receive by email a confirmation of you subscription and then an invitation to begin to meet people around you!</p>
       <%= devise_error_messages! %>
 
+      <% if flash[:notice] %>
+        <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+      <% end %>
+
       <div id="signup-fields-container">
         <div class="sign-up-field">
           <%= f.label :email, "Email" %>
