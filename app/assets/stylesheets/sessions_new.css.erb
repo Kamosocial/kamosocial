@@ -1,0 +1,38 @@
+#login {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#login label {
+  display: block;
+}
+
+#login input[type=email], #login input[type=password] {
+  width: 300px;
+  box-shadow: 0 5px 10px #ccc;
+  border-radius: 25px;
+  border: none;
+  padding: 15px 40px;
+  margin: 20px 30px;
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  #login input[type=email], #login input[type=password] {
+    width: 200px;
+    margin: 20px 0;
+  }
+}
+
+#devise-links {
+  margin-top: 40px;
+}
+
+#devise-links li+li {
+  margin-top: 5px;
+}
+#devise-links a {
+  text-decoration: none;
+  color: #F4D35E;
+  font-weight: bold;
+}
