@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   rescue_from ArgumentError do |exception|
      flash.now[:alert] = "Arguments for your request are incorrect"
      redirect_to root_url, :alert => exception.message
