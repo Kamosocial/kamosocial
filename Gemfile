@@ -27,6 +27,8 @@ gem 'gon', '~> 6.1.0'
 
 gem 'font-awesome-rails', '~> 4.7.0.3'
 
+gem 'http_accept_language', '~> 2.1.1'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
