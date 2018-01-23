@@ -29,5 +29,5 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+fr:
+  welcome_html: "Rencontrez des personnes avec les mêmes centres d'intérêts.<br/>Ou pas. C'est aussi bien d'avoir l'esprit ouvert. :)"
