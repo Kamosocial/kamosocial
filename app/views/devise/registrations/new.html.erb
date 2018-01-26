@@ -5,9 +5,10 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :email, label: t('signup.email') + ' ' + t('signup.email_notice'), required: true, autofocus: true %>
+      <%= f.input :username, label: t('signup.username') + ' ' + t('signup.username_notice'), required: true %>
+      <%= f.input :password, label: t('signup.password') + ' ' + t('signup.password_notice'), required: true %>
+      <%= f.input :password_confirmation, label: t('signup.confirmation_password') + ' ' + t('signup.confirmation_password_notice'), required: true %>
     </div>
 
     <div class="form-actions">
