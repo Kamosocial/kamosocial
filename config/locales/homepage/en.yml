@@ -33,9 +33,9 @@ en:
   welcome_html: "Meet people with the same interests as you.<br/>Or not. It's cool to open your mind as well. :)"
   explanation:
     title: "How does it work?"
-    email: "Receive invitations by email to meet other people and get socializing!"
-    place: "Meet in bars, cafés or restaurants near where you are or often go"
-    privacy: "Give only the necessary data to make it work. No tracking."
+    email: "Receive invitations by email to meet other people and socialize!"
+    place: "Meet in bars, cafés or restaurants near you."
+    privacy: "Give only the necessary data to make it work. We care about your privacy."
   interests:
     title: "Add interests"
     description_html: "Add a list of your interests in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
