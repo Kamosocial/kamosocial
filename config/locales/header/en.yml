@@ -31,6 +31,5 @@
 
 en:
   header:
-    signed_in_as: "Signed in as"
     login: "Log in"
     logout: "Log out"

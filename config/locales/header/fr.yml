@@ -31,6 +31,5 @@
 
 fr:
   header:
-    signed_in_as: "Connecté en tant que"
     login: "Connexion"
     logout: "Déconnexion"

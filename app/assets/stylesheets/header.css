@@ -1,8 +1,30 @@
+#login-button, #session-dropdown {
+  font-family: 'indie_flowerregular', sans-serif;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  background-color: #1B998A;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+  width: 110px;
+}
+
+#login-button:hover {
+  top: 31px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.2);
+}
+
 #lang-dropdown {
   font-family: 'indie_flowerregular', sans-serif;
   font-size: 1.4rem;
   position: absolute;
-  right: 200px;
+  right: 220px;
   top: 30px;
   width: 110px;
   background-color: #1B998A;
@@ -15,22 +37,23 @@
   text-decoration: none;
 }
 
-#lang-dropdown ul {
+#lang-dropdown ul, #session-dropdown ul {
   margin-top: 10px;
   display: none;
 }
 
-#lang-dropdown ul a {
+#lang-dropdown ul a, #session-dropdown ul a {
   color: #F4D35E;
   cursor: pointer;
   text-decoration: none;
+  font-size: 1.2rem;
 }
 
-#lang-dropdown ul a:hover {
+#lang-dropdown ul a:hover, #session-dropdown ul a:hover{
   text-decoration: underline;
 }
 
-#lang-dropdown:hover ul {
+#lang-dropdown:hover ul, #session-dropdown:hover ul {
   display: block;
 }
 
@@ -41,6 +64,10 @@
 }
 
 @media all and (max-width: 500px) {
+  #login-button, #logout-button, #username {
+    display: none;
+  }
+
   #lang-dropdown {
     display: none;
   }
