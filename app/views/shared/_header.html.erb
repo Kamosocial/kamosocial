@@ -1,5 +1,17 @@
 <header>
   <h1>Kamo.social</h1>
+  <div id="lang-dropdown">
+    <% if locale.to_s == 'en' %>
+      English
+    <% elsif locale.to_s == 'fr' %>
+      Français
+    <% end %>
+    <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    <ul>
+      <li><%= link_to "English", { :locale=>'en' } %></li>
+      <li><%= link_to "Français", { :locale=>'fr' } %></li>
+    </ul>
+  </div>
   <% if user_signed_in? %>
     <span id="username"><%=t 'header.signed_in_as' %> <%= current_user.username %></span>
    <%= link_to(t('header.logout'), destroy_user_session_path, method: :delete, id:"logout-button") %>

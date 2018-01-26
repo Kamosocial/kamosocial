@@ -1,0 +1,47 @@
+#lang-dropdown {
+  font-family: 'indie_flowerregular', sans-serif;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 200px;
+  top: 30px;
+  width: 110px;
+  background-color: #1B998A;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 7px;
+  color: #F4D35E;
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#lang-dropdown ul {
+  margin-top: 10px;
+  display: none;
+}
+
+#lang-dropdown ul a {
+  color: #F4D35E;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#lang-dropdown ul a:hover {
+  text-decoration: underline;
+}
+
+#lang-dropdown:hover ul {
+  display: block;
+}
+
+#lang-dropdown i {
+  position: relative;
+  bottom: 3px;
+  left: 4px;
+}
+
+@media all and (max-width: 500px) {
+  #lang-dropdown {
+    display: none;
+  }
+}
