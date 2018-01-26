@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise', '~> 4.4.0'
+gem 'devise-i18n', '~> 1.5.0'
 
 gem 'simple_form', '~> 3.5.0'
 
@@ -26,6 +27,8 @@ gem 'leaflet-rails', '~> 1.2.0'
 gem 'gon', '~> 6.1.0'
 
 gem 'font-awesome-rails', '~> 4.7.0.3'
+
+gem 'http_accept_language', '~> 2.1.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

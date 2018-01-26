@@ -29,5 +29,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+fr:
+  footer:
+    terms_and_conditions: "Conditions générales"
+    privacy_policy: "Politique de confidentialité"
+    credits: "Crédits"
+    made_with_love: "Fait avec <3 à Paris"

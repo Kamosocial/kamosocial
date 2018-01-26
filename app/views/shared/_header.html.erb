@@ -1,10 +1,28 @@
 <header>
-  <h1>Kamo.social</h1>
+  <h1><a href="/<%= locale %>">Kamo.social</a></h1>
+  <div id="lang-dropdown">
+    <% if locale.to_s == 'en' %>
+      English
+    <% elsif locale.to_s == 'fr' %>
+      Français
+    <% end %>
+    <i class="fa fa-sort-desc" aria-hidden="true"></i>
+    <ul>
+      <li><%= link_to "English", { :locale=>'en' } %></li>
+      <li><%= link_to "Français", { :locale=>'fr' } %></li>
+    </ul>
+  </div>
   <% if user_signed_in? %>
-    <span id="username">Signed in as <%= current_user.username %></span>
-   <%= link_to('Log out', destroy_user_session_path, method: :delete, id:"logout-button") %>
+    <div id="session-dropdown">
+      <%= current_user.username %>
+      <ul>
+        <li>
+         <%= link_to(t('header.logout'), destroy_user_session_path, method: :delete, id:"logout-button") %>
+        </li>
+      </ul>
+    </div>
   <% else %>
-    <%= link_to "Log in", login_path, id:"login-button" %>
+    <%= link_to t('header.login'), login_path, id:"login-button" %>
   <% end %>
 </header>
 
