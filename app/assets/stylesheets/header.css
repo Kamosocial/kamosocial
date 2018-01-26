@@ -1,3 +1,15 @@
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0;
+  text-shadow: 4px 4px 1px #1B998A;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #fff;
+}
+
 #login-button, #session-dropdown {
   font-family: 'indie_flowerregular', sans-serif;
   font-size: 1.4rem;
