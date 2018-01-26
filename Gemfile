@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'devise', '~> 4.4.0'
+gem 'devise-i18n', '~> 1.5.0'
 
 gem 'simple_form', '~> 3.5.0'
 

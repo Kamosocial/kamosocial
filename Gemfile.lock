@@ -69,6 +69,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.5.0)
+      devise (>= 3.4)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -206,6 +208,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise (~> 4.4.0)
+  devise-i18n (~> 1.5.0)
   font-awesome-rails (~> 4.7.0.3)
   gon (~> 6.1.0)
   http_accept_language (~> 2.1.1)
