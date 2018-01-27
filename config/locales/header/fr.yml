@@ -33,3 +33,4 @@ fr:
   header:
     login: "Connexion"
     logout: "Déconnexion"
+    preferences: "Préférences"

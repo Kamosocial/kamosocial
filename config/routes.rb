@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|fr/ do
-    get '/preferences', to: 'preferences#index'
+    get '/preferences', to: 'preferences#index', as: "preferences"
 
     # devise_for :users
     devise_scope :user do

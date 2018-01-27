@@ -33,3 +33,4 @@ en:
   header:
     login: "Log in"
     logout: "Log out"
+    preferences: "Preferences"

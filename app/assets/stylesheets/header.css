@@ -82,7 +82,7 @@ header {
 }
 
 @media all and (max-width: 500px) {
-  #login-button, #logout-button, #username {
+  #login-button, #session-dropdown {
     display: none;
   }
 
