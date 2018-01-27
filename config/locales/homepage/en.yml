@@ -36,10 +36,6 @@ en:
     email: "Receive invitations by email to meet other people and socialize!"
     place: "Meet in bars, cafés or restaurants near you."
     privacy: "Give only the necessary data to make it work. We care about your privacy."
-  interests:
-    title: "Add interests"
-    description_html: "Add a list of your interests in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
-    interests_picking: "If you wish, you can pick from these most recent interests:"
   places:
     title: "Add places"
     description: "Add places near where you live and where you would like to meet people regularly on a regular basis. Weekly, Monthly, it is up to you to arrange yourself. ;)"

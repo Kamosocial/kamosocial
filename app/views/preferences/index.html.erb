@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+<% end %>
+
 <p id="preferences-message"><%=t 'preferences.message' %></p>
 
 <div id="interests-section">
@@ -7,6 +14,10 @@
       <li><%= interest.name %></li>
     <% end %>
   </ul>
+  <% if @interests.empty? %>
+    <%=t 'preferences.interests.empty' %>
+  <% end %>
+  <%= link_to t("preferences.interests.edit"), preferences_interests_path, class: "button main" %>
 </div>
 
 <div id="places-section">

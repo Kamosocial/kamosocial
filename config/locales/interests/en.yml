@@ -29,14 +29,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-fr:
-  preferences:
-    message: "Attendez de recevoir un email vous invitant à rencontrer d'autres personnes à partir de vos centres d'intérêts et lieux."
-    interests:
-      title: "Vos centres d'intérêts"
-      edit: "Éditer"
-      empty: "Il semble que vous n'avez pas encore de centres d'intérêts. Ajoutez-en !"
-    places:
-      title: "Vos lieux de rencontre"
-    button:
-      back: "Retour"
+en:
+  interests:
+    add_button: "Edit"
+    title: "Edit interests"
+    description_html: "Write a list of your interests in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
+    interests_picking: "If you wish, you can pick from these most recent interests:"

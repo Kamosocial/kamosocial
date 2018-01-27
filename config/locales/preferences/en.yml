@@ -34,5 +34,9 @@ en:
     message: "Wait for an email inviting you to meet other people based on your interests and places."
     interests:
       title: "Your interests"
+      edit: "Edit"
+      empty: "It seems you have no interests yet. Add some!"
     places:
       title: "Your places"
+    button:
+      back: "Back"

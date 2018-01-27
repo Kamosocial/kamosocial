@@ -36,10 +36,6 @@ fr:
     email: "Recevez par email des invitations pour rencontrer d'autres personnes et sociabilisez !"
     place: "Faites des rencontres dans des bars, cafés ou restaurants près de vous."
     privacy: "Donnez seulement les données nécessaires au bon fonctionnement. Nous respectons votre vie privée."
-  interests:
-    title: "Ajoutez des centres d'intérêts"
-    description_html: "Ajoutez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"
-    interests_picking: "Si vous le souhaitez, vous pouvez choisir des centres d'intérêts parmi ces plus récents :"
   places:
     title: "Ajoutez des lieux"
     description: "Ajoutez des lieux près d'où vous vivez et où vous souhaiteriez rencontrer des personnes régulièrement. Chaque semaine, chaque mois, c'est selon vous. ;)"

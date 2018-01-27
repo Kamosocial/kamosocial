@@ -1,0 +1,21 @@
+<div id="interests-section">
+  <%= form_for(current_user, url: edit_preferences_interests_path, html: { method: :put }) do |f| %>
+    <% if flash[:notice] %>
+      <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+    <% end %>
+
+    <div id="interests-section">
+      <h3><%=t 'interests.title' %></h3>
+      <p><%=t 'interests.description_html' %></p>
+      <%= f.label :interests %><br />
+      <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
+    </div>
+    <div class="buttons-line">
+      <%= link_to(t('preferences.button.back'), preferences_path, class: "button back") %>
+      <%= f.submit t 'interests.add_button', class: "form-submit" %>
+    </div>
+  <% end %>
+</div>

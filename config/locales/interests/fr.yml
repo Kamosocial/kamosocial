@@ -30,13 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  preferences:
-    message: "Attendez de recevoir un email vous invitant à rencontrer d'autres personnes à partir de vos centres d'intérêts et lieux."
-    interests:
-      title: "Vos centres d'intérêts"
-      edit: "Éditer"
-      empty: "Il semble que vous n'avez pas encore de centres d'intérêts. Ajoutez-en !"
-    places:
-      title: "Vos lieux de rencontre"
-    button:
-      back: "Retour"
+  interests:
+    add_button: "Éditer"
+    title: "Éditez vos centres d'intérêts"
+    description_html: "Écrivez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"
+    interests_picking: "Si vous le souhaitez, vous pouvez choisir des centres d'intérêts parmi ces plus récents :"

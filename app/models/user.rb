@@ -21,13 +21,15 @@ class User < ApplicationRecord
       raise ArgumentError, 'Please add at least one interest'
     end
     current_interest = value.split(',').collect{|interest| interest.strip.downcase}.uniq
+    user_interests = []
     current_interest.each do |interest|
-      self.interests << Interest.find_or_create_by(name: interest)
+      user_interests << Interest.find_or_create_by(name: interest)
     end
+    self.interests = user_interests
   end
 
   def interests_list
-    self.interests.join(',')
+    self.interests.collect{|interest| interest.name}.join(', ')
   end
 
   def places_list=value
