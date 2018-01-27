@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :places
 
-  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, uniqueness: { case_sensitive: false }, length: { minimum: 2 }
   validates_associated :interests
   validates_associated :places
 
