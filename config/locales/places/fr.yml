@@ -29,17 +29,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  preferences:
-    message:
-     wait: "Wait for an email inviting you to meet other people based on your interests and places."
-     should_add: "Please add your interests and places before you can receive emails based on them."
-    interests:
-      title: "Your interests"
-      edit: "Edit"
-      empty: "It seems you have no interests yet. Add some!"
-    places:
-      title: "Your places"
-      empty: "It seems you have no places yet. Add some!"
-    button:
-      back: "Back"
+fr:
+  places:
+    add_button: "Éditer"
+    title: "Éditez vos lieux"
+    description_html: "Écrivez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"

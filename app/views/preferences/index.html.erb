@@ -5,7 +5,13 @@
   <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
 <% end %>
 
-<p id="preferences-message"><%=t 'preferences.message' %></p>
+<p id="preferences-message">
+  <% if @interests.empty? || @places.empty? %>
+    <%=t 'preferences.message.should_add' %>
+  <% else %>
+    <%=t 'preferences.message.wait' %>
+  <% end %>
+</p>
 
 <div id="interests-section">
   <h3><%=t 'preferences.interests.title' %></h3>
@@ -27,4 +33,8 @@
       <li><span class="name"><%= place.name %></span> <%= place.address %></li>
     <% end %>
   </ul>
+  <% if @places.empty? %>
+    <%=t 'preferences.places.empty' %>
+  <% end %>
+  <%= link_to t("preferences.places.edit"), preferences_places_path, class: "button main" %>
 </div>

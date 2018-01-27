@@ -38,6 +38,7 @@ class User < ApplicationRecord
     end
     current_place = JSON.parse(value)
     puts "currents place: #{current_place}"
+    user_places = []
     current_place.each do |place|
       place['name'] = place['label'].split(',')[0] unless place['name']
       place['label'] = place['label'] unless place['address']
@@ -45,15 +46,16 @@ class User < ApplicationRecord
       place['longitude'] = place['x'].to_f unless place['longitude']
       place['osm_id'] = place['raw']['osm_id'].to_i unless place['osm_id']
       puts "2.this place: #{place}"
-      self.places << Place.create_with(name: place['name'],
+      user_places << Place.create_with(name: place['name'],
                                         address: place['label'],
                                         latitude: place['latitude'],
                                         longitude: place['longitude'])
         .find_or_create_by(osm_id: place['osm_id'])
     end
+    self.places = user_places
   end
 
   def places_list
-    self.places.join(',')
+    self.places.to_json
   end
 end

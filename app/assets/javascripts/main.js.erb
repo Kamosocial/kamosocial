@@ -72,9 +72,12 @@ if (gon) {
 }
 
 var latestPlace = {};
-var addedPlaces = [];
 var places_form = document.getElementById('user_places_list');
 var places_list = document.getElementById('added-places');
+var addedPlaces = JSON.parse(places_form.value) || [];
+
+// Register first state by taking into account app's data
+registerState();
 
 function deletePlaceButton(index) {
   addedPlaces.splice(index, 1);
@@ -110,6 +113,8 @@ window.addEventListener('custom/addedPlace', function (e) {
 var interests_items = document.querySelector('#interests-list');
 var interests_input = document.querySelector('#user_interests_list');
 
-interests_items.addEventListener('click', function (e) {
-  interests_input.value += interests_input.value == '' ? `${e.target.textContent}` : `, ${e.target.textContent}`;
-}, false);
+if (interests_input) {
+  interests_items.addEventListener('click', function (e) {
+    interests_input.value += interests_input.value == '' ? `${e.target.textContent}` : `, ${e.target.textContent}`;
+  }, false);
+}

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get '/preferences', to: 'preferences#index', as: "preferences"
     get '/preferences/interests', to: 'interests#index', as: "preferences_interests"
     put '/preferences/interests', to: 'interests#edit', as: "edit_preferences_interests"
+    get '/preferences/places', to: 'places#index', as: "preferences_places"
+    put '/preferences/places', to: 'places#edit', as: "edit_preferences_places"
 
     # devise_for :users
     devise_scope :user do

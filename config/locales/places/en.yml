@@ -30,16 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  preferences:
-    message:
-     wait: "Wait for an email inviting you to meet other people based on your interests and places."
-     should_add: "Please add your interests and places before you can receive emails based on them."
-    interests:
-      title: "Your interests"
-      edit: "Edit"
-      empty: "It seems you have no interests yet. Add some!"
-    places:
-      title: "Your places"
-      empty: "It seems you have no places yet. Add some!"
-    button:
-      back: "Back"
+  places:
+    add_button: "Edit"
+    title: "Edit places"
+    description_html: "Write a list of your places in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
