@@ -1,6 +1,15 @@
 <div id="devise-page">
   <h2><%= t(".sign_up") %></h2>
 
+  <%= devise_error_messages! %>
+
+  <% if flash[:notice] %>
+    <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+  <% end %>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
