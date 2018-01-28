@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get '/preferences/places', to: 'places#index', as: "preferences_places"
     put '/preferences/places', to: 'places#edit', as: "edit_preferences_places"
 
+    get '/privacy-policy', to: 'privacy#index', as: "privacy_policy"
+
     # devise_for :users
     devise_scope :user do
       get "/login" => "devise/sessions#new" # custom path to login/sign_in
