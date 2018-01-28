@@ -17,7 +17,8 @@
       <%= current_user.username %>
       <ul>
         <li>
-         <%= link_to(t('header.logout'), destroy_user_session_path, method: :delete, id:"logout-button") %>
+         <%= link_to(t('header.preferences'), preferences_path) %>
+         <%= link_to(t('header.logout'), destroy_user_session_path, method: :delete) %>
         </li>
       </ul>
     </div>

@@ -10,6 +10,12 @@ h1 a {
   color: #fff;
 }
 
+header {
+  height: 75px;
+  padding: 25px;
+  background-color: #F4D35E;
+}
+
 #login-button, #session-dropdown {
   font-family: 'indie_flowerregular', sans-serif;
   font-size: 1.4rem;
@@ -76,7 +82,7 @@ h1 a {
 }
 
 @media all and (max-width: 500px) {
-  #login-button, #logout-button, #username {
+  #login-button, #session-dropdown {
     display: none;
   }
 

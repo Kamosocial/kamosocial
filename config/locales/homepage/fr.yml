@@ -30,32 +30,24 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  welcome_html: "Rencontrez des personnes avec les mêmes centres d'intérêts que vous.<br/>Ou pas. C'est bien aussi d'avoir l'esprit ouvert. :)"
-  explanation:
-    title: "Comment ?"
-    email: "Recevez par email des invitations pour rencontrer d'autres personnes et sociabilisez !"
-    place: "Faites des rencontres dans des bars, cafés ou restaurants près de vous."
-    privacy: "Donnez seulement les données nécessaires au bon fonctionnement. Nous respectons votre vie privée."
-  interests:
-    title: "Ajoutez des centres d'intérêts"
-    description_html: "Ajoutez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"
-    interests_picking: "Si vous le souhaitez, vous pouvez choisir des centres d'intérêts parmi ces plus récents :"
-  places:
-    title: "Ajoutez des lieux"
-    description: "Ajoutez des lieux près d'où vous vivez et où vous souhaiteriez rencontrer des personnes régulièrement. Chaque semaine, chaque mois, c'est selon vous. ;)"
-    search_helper: "Vous pouvez chercher par nom des lieux que vous connaissez déjà ou sinon choisir parmi ceux déjà affichés et où il y a déjà d'autres personnes."
-  signup:
-    title: "Inscrivez-vous"
-    description: "Enfin inscrivez-vous pour ensuite recevoir un email de confirmation et commencer à rencontrer d'autres personnes !"
-    email: "Email"
-    email_notice: "(restera privé)"
-    email_placeholder: "jeandupont@example.com"
-    username: "Nom d'utilisateur"
-    username_notice: "(va être affiché aux autres utilisateurs)"
-    username_placeholder: "JeanDupont"
-    password: "Mot de passe"
-    password_notice: "(protégez-le bien)"
-    min_characters: "caractères au minimum"
-    confirmation_password: "Confirmation du mot de passe"
-    confirmation_password_notice: "(juste pour être sûr)"
-    button: "Inscription"
+  homepage:
+    welcome_html: "Rencontrez des personnes avec les mêmes centres d'intérêts que vous.<br/>Ou pas. C'est bien aussi d'avoir l'esprit ouvert. :)"
+    explanation:
+      title: "Comment ?"
+      email: "Recevez par email des invitations pour rencontrer d'autres personnes et sociabilisez !"
+      place: "Faites des rencontres dans des bars, cafés ou restaurants près de vous."
+      privacy: "Donnez seulement les données nécessaires au bon fonctionnement. Nous respectons votre vie privée."
+    places:
+      title: "Ajoutez des lieux"
+      description: "Ajoutez des lieux près d'où vous vivez et où vous souhaiteriez rencontrer des personnes régulièrement. Chaque semaine, chaque mois, c'est selon vous. ;)"
+      search_helper: "Vous pouvez chercher par nom des lieux que vous connaissez déjà ou sinon choisir parmi ceux déjà affichés et où il y a déjà d'autres personnes."
+    interests:
+      title: "Ajoutez vos centres d'intérêts"
+      description_html: "Une fois sur votre page de préférences, écrivez une liste de vos centres d'intérêts en anglais.<br/> Par exemple ci-dessous vous avez un exemple des derniers centres d'intérêts ajoutés par la communauté."
+    socialize:
+      title: "Sociabilisez !"
+      description_html: "Enfin, attendez de recevoir des invitations par email vous invitant à rencontrer chaque semaine des personnes avec qui vous partagez les mêmes lieux et centres d'intérêts.<br /> Plus vous avez de lieux et de centres d'intérêts en commun, plus rapidement pour aller pouvoir rencontrer des personnes. ;)"
+    signup:
+      title: "Inscrivez-vous"
+      description: "D'abord inscrivez-vous avec votre adresse email pour ensuite accéder à votre page de préférences. Le premier pas est le plus dur à faire, mais ensuite c'est facile. :D"
+      button: "Inscription"

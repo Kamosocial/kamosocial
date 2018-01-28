@@ -30,7 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "l'email ne peut pas être vide"
+            password:
+              blank: "le mot de passe ne peut pas être vide"
+            username:
+              too_short: "le nom d'utilisateur est trop court (doit faire au moins %{count} caractères)"

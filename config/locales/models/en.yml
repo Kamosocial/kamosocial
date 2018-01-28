@@ -29,8 +29,15 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "email can't be blank"
+            password:
+              blank: "password can't be blank"
+            username:
+              too_short: "username is too short (minimum is %{count} characters)"

@@ -1,3 +1,12 @@
+.error, .error_notification {
+  color: red;
+  display: block;
+}
+
+.error_notification {
+  margin-bottom: 10px;
+}
+
 #devise-page {
   max-width: 800px;
   margin: 0 auto;
@@ -7,7 +16,7 @@
   display: block;
 }
 
-#devise-page input[type=email], #devise-page input[type=password] {
+#devise-page input[type=text], #devise-page input[type=email], #devise-page input[type=password] {
   width: 300px;
   box-shadow: 0 5px 10px #ccc;
   border-radius: 25px;
@@ -31,6 +40,7 @@
 #devise-links li+li {
   margin-top: 5px;
 }
+
 #devise-links a {
   text-decoration: none;
   color: #F4D35E;

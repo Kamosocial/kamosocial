@@ -29,8 +29,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+en:
+  signup:
+    description: "First, sign up with your email address to then access to your preferences page."
+    email: "Email"
+    email_notice: "(will be kept private)"
+    email_placeholder: "johndoe@example.com"
+    username: "Username"
+    username_notice: "(will be displayed to other users)"
+    username_placeholder: "JohnDoe"
+    password: "Password"
+    password_notice: "(try to use a safe one)"
+    min_characters: "characters minimum"
+    confirmation_password: "Confirmation password"
+    confirmation_password_notice: "(just to be safe)"
+    button: "Sign up"

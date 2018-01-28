@@ -30,7 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+  places:
+    add_button: "Éditer"
+    title: "Éditez vos lieux"
+    description_html: "Écrivez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"

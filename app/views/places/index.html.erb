@@ -1,0 +1,21 @@
+<div id="places-section">
+  <%= form_for(current_user, url: edit_preferences_places_path, html: { method: :put }) do |f| %>
+    <% if flash[:notice] %>
+      <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+    <% end %>
+    <h3><%=t 'places.title' %></h3>
+    <p><%=t 'places.description' %></p>
+    <p><%=t 'places.search_helper' %></p>
+    <%= f.hidden_field :places_list %>
+    <div id="mapid"></div>
+    <ul id="added-places">
+    </ul>
+    <div class="buttons-line">
+      <%= link_to(t('preferences.button.back'), preferences_path, class: "button back") %>
+      <%= f.submit t 'interests.add_button', class: "form-submit" %>
+    </div>
+  <% end %>
+</div>

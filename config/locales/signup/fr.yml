@@ -30,7 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+  signup:
+    description: "D'abord inscrivez-vous avec votre adresse email pour ensuite accéder à votre page de préférences."
+    email: "Email"
+    email_notice: "(restera privé)"
+    email_placeholder: "jeandupont@example.com"
+    username: "Nom d'utilisateur"
+    username_notice: "(va être affiché aux autres utilisateurs)"
+    username_placeholder: "JeanDupont"
+    password: "Mot de passe"
+    password_notice: "(protégez-le bien)"
+    min_characters: "caractères au minimum"
+    confirmation_password: "Confirmation du mot de passe"
+    confirmation_password_notice: "(juste pour être sûr)"
+    button: "Inscription"

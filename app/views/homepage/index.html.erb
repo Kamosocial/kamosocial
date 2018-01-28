@@ -1,94 +1,53 @@
 <div id="welcome-section">
   <p>
-    <%=t 'welcome_html' %>
+    <%=t 'homepage.welcome_html' %>
   </p>
+  <%= link_to t("homepage.signup.button"), signup_path, id: "signup-button" %>
 </div>
 
 <div id="explanation-section">
-  <h2><%=t 'explanation.title' %></h2>
+  <h2><%=t 'homepage.explanation.title' %></h2>
   <div id="explanation-container">
     <div>
       <img src="<%= image_path 'noun_email.png' %>"/>
-      <p><%=t 'explanation.email' %></p>
+      <p><%=t 'homepage.explanation.email' %></p>
     </div>
     <div>
       <img src="<%= image_path 'noun_cafe.png' %>"/>
-      <p><%=t 'explanation.place' %></p>
+      <p><%=t 'homepage.explanation.place' %></p>
     </div>
     <div>
       <img src="<%= image_path 'noun_privacy.png' %>"/>
-      <p><%=t 'explanation.privacy' %></p>
+      <p><%=t 'homepage.explanation.privacy' %></p>
     </div>
   </div>
 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div id="interests-section">
-    <h3>1. <%=t 'interests.title' %></h3>
-    <p><%=t 'interests.description_html' %></p>
-    <p><%=t 'interests.interests_picking' %></p>
-    <ul id="interests-list">
-      <% @interests_sample.each do |interest| %>
-        <li><%= interest.name %></li>
-      <% end %>
-    </ul>
-    <%= f.label :interests %><br />
-    <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
-  </div>
+<div id="signup-section">
+  <h3>1. <%=t 'homepage.signup.title' %></h3>
+  <p><%=t 'homepage.signup.description' %></p>
+</div>
 
-  <div id="places-section">
-    <h3>2. <%=t 'places.title' %></h3>
-    <p><%=t 'places.description' %></p>
-    <p><%=t 'places.search_helper' %></p>
-    <%= f.hidden_field :places_list %>
-    <div id="mapid"></div>
-    <ul id="added-places">
-  </div>
+<div id="interests-section">
+  <h3>2. <%=t 'homepage.interests.title' %></h3>
+  <p><%=t 'homepage.interests.description_html' %></p>
+  <ul id="interests-list">
+    <% @interests_sample.each do |interest| %>
+      <li><%= interest.name %></li>
+    <% end %>
+  </ul>
+</div>
 
-  <% if !user_signed_in? %>
-    <div id="signup-section">
-      <h3>3. <%=t 'signup.title' %></h3>
-      <p><%=t 'signup.description' %></p>
-      <%= devise_error_messages! %>
+<div id="places-section">
+  <h3>3. <%=t 'homepage.places.title' %></h3>
+  <p><%=t 'homepage.places.description' %></p>
+  <p><%=t 'homepage.places.search_helper' %></p>
+  <div id="mapid"></div>
+</div>
 
-      <% if flash[:notice] %>
-        <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
-      <% end %>
+<div id="socialize-section">
+  <h3>4. <%=t 'homepage.socialize.title' %></h3>
+  <p><%=t 'homepage.socialize.description_html' %></p>
+</div>
 
-      <div id="signup-fields-container">
-        <div class="sign-up-field">
-          <%= f.label :email, t('signup.email') %>
-          <span><%=t 'signup.email_notice' %></span><br />
-          <%= f.email_field :email, autocomplete: "email", placeholder: t('signup.email_placeholder') %>
-        </div>
-
-        <div class="sign-up-field">
-          <%= f.label :username, t('signup.username') %>
-          <span><%=t 'signup.username_notice' %></span><br />
-          <%= f.text_field :username, placeholder: t('signup.username_placeholder') %>
-        </div>
-
-        <div class="sign-up-field">
-          <%= f.label :password, t('signup.password') %>
-          <span><%=t 'signup.password_notice' %></span><br />
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> <%=t 'signup.min_characters' %>)</em><br />
-          <% end %>
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="sign-up-field">
-          <%= f.label :password_confirmation, t('signup.confirmation_password') %>
-          <span><%=t 'signup.confirmation_password_notice' %></span><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% if !user_signed_in? %>
-    <%= f.submit t 'signup.button' %>
-  <% end %>
-<% end %>
+<%= link_to t("homepage.signup.button"), signup_path, id: "signup-button-bottom" %>

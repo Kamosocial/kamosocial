@@ -1,13 +1,23 @@
 <div id="devise-page">
   <h2><%= t(".sign_up") %></h2>
 
+  <%= devise_error_messages! %>
+
+  <% if flash[:notice] %>
+    <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+  <% end %>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :password, required: true %>
-      <%= f.input :password_confirmation, required: true %>
+      <%= f.input :email, label: t('signup.email') + ' ' + t('signup.email_notice'), required: true, autofocus: true, placeholder: t('signup.email_placeholder')  %>
+      <%= f.input :username, label: t('signup.username') + ' ' + t('signup.username_notice'), required: true, placeholder: t('signup.username_placeholder') %>
+      <%= f.input :password, label: t('signup.password') + ' ' + t('signup.password_notice'), required: true %>
+      <%= f.input :password_confirmation, label: t('signup.confirmation_password') + ' ' + t('signup.confirmation_password_notice'), required: true %>
     </div>
 
     <div class="form-actions">

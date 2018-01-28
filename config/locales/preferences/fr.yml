@@ -30,7 +30,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+  preferences:
+    message:
+     wait: "Attendez de recevoir un email vous invitant à rencontrer d'autres personnes à partir de vos centres d'intérêts et lieux."
+     should_add: "Ajoutez vos centres intérêts et lieux avant de pouvoir recevoir des emails basés sur eux."
+    interests:
+      title: "Vos centres d'intérêts"
+      edit: "Éditer"
+      empty: "Il semble que vous n'avez pas encore de centres d'intérêts. Ajoutez-en !"
+    places:
+      title: "Vos lieux de rencontre"
+      empty: "Il semble que vous n'avez pas encore de lieux. Ajoutez-en !"
+    button:
+      back: "Retour"

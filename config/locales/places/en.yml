@@ -29,8 +29,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-fr:
-  header:
-    login: "Connexion"
-    logout: "Déconnexion"
-    preferences: "Préférences"
+en:
+  places:
+    add_button: "Edit"
+    title: "Edit places"
+    description_html: "Write a list of your places in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
