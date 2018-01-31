@@ -51,3 +51,4 @@ fr:
       title: "Inscrivez-vous"
       description: "D'abord inscrivez-vous avec votre adresse email pour ensuite accéder à votre page de préférences. Le premier pas est le plus dur à faire, mais ensuite c'est facile. :D"
       button: "Inscription"
+      call_for_button: "(Si vous ne l'aviez pas encore vu, nous avons remis le bouton d'inscription juste en-dessous)"

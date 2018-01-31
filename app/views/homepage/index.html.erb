@@ -2,7 +2,7 @@
   <p>
     <%=t 'homepage.welcome_html' %>
   </p>
-  <%= link_to t("homepage.signup.button"), signup_path, id: "signup-button" %>
+  <%= link_to t("homepage.signup.button"), signup_path, class: "signup-button" %>
 </div>
 
 <div id="explanation-section">
@@ -26,6 +26,8 @@
 <div id="signup-section">
   <h3>1. <%=t 'homepage.signup.title' %></h3>
   <p><%=t 'homepage.signup.description' %></p>
+  <p><%=t 'homepage.signup.call_for_button' %></p>
+  <%= link_to t("homepage.signup.button"), signup_path, class: "signup-button" %>
 </div>
 
 <div id="interests-section">
