@@ -12,8 +12,14 @@
   margin: 0 auto;
 }
 
-#devise-page, label {
+#devise-page label {
   display: block;
+  margin-top: 20px;
+}
+
+#devise-page .hint {
+  display: block;
+  font-style: italic;
 }
 
 #devise-page input[type=text], #devise-page input[type=email], #devise-page input[type=password] {
@@ -24,6 +30,16 @@
   padding: 15px 40px;
   margin: 20px 30px;
   text-align: center;
+}
+
+#devise-page .button.delete {
+  display: block;
+  width: 250px;
+  margin: 30px auto;
+}
+
+#devise-page .button.delete+.button {
+  margin-top: 50px;
 }
 
 @media all and (max-width: 500px) {

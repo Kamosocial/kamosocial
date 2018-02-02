@@ -38,3 +38,9 @@
   <% end %>
   <%= link_to t("preferences.places.edit"), preferences_places_path, class: "button main" %>
 </div>
+
+<div id="account-section">
+  <h3><%=t 'preferences.account.title' %></h3>
+  <%=t 'preferences.account.description' %>
+  <%= link_to t("preferences.account.edit"), preferences_account_path, class: "button main" %>
+</div>

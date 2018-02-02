@@ -39,5 +39,7 @@ fr:
               blank: "l'email ne peut pas être vide"
             password:
               blank: "le mot de passe ne peut pas être vide"
+            current_password:
+              blank: "le mot de passe courant ne peut pas être vide"
             username:
               too_short: "le nom d'utilisateur est trop court (doit faire au moins %{count} caractères)"
