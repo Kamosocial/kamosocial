@@ -1,0 +1,32 @@
+<% if flash[:notice] %>
+  <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+<% end %>
+
+<div id="terms-section">
+  <h2>Résumé</h2>
+  <ol>
+    <li>Les utilisateurs doivent accepter les conditions d'utilisation avant de s'inscrire</li>
+    <li>L'éditeur de Kamo.social ne propose aucune garantie de service et de sécurité compte-tenu de ses faibles moyens.</li>
+    <li>Le service peut-être arrêté à tout instant sans notification à ses utilisateurs.</li>
+    <li>L'éditeur de Kamo.social se dégage de toute responsabilité de tout effet dû à l'utilisation du site web par ses utilisateurs.</li>
+    <li>Le service proposé à ses utilisateurs est gratuit mais des offres payantes pourront être proposées.</li>
+    <li>Les utilisateurs peuvent à tout moment s'inscrire ou se désincrire du service sans aucun engagement.</li>
+    <li>Les utilisateurs seront notifiés des changements de ces conditions d'utilisation par email.</li>
+    <li>Kamo.social se veut une expérimentation du développement du service avec la communauté mais sans être open source.</li>
+    <li>Il est possible que Kamo.social ouvre son code source.</li>
+  </ol>
+
+  <h2>Prix</h2>
+  <p>
+  Kamo.social propose une offre gratuite pour ses utilisateurs. L'idée est de maintenir les coûts techniques suffisamment bas pour que l'éditeur puisse continuer à proposer le service gratuitement.<br>
+  </p>
+  <p>
+  Parmi les moyens possibles pour réduire les coûts nous pouvons compter : des choix de serveurs à bas prix, une décentralisation du stockage des données, une décentralisation des outils de calculs.<br>
+  </p>
+  <p>
+  Si les coûts restent trop élevés, l'éditeur peut à tout moment mettre en place des campagnes de dons ou tout autre source de financement afin d'aider à maintenir le service.
+  </p>
+</div>

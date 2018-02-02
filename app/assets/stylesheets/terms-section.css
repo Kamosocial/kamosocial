@@ -1,0 +1,23 @@
+#terms-section a {
+  color: #1B998A;
+}
+
+#terms-section p, #terms-section ol {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#terms-section ol li {
+  margin: 20px auto;
+}
+
+#terms-section ul li {
+  margin: 10px auto;
+}
+
+
+#terms-section ul li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  margin-right: 10px;
+}

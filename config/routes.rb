@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     get '/privacy-policy', to: 'privacy#index', as: "privacy_policy"
 
+    get '/terms-and-conditions', to: 'terms#index', as: "terms_and_conditions"
+
     # devise_for :users
     devise_scope :user do
       get "/login" => "devise/sessions#new" # custom path to login/sign_in
