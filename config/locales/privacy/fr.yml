@@ -1,0 +1,72 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  privacy:
+    summary:
+      title: "Résumé"
+      storage: "Les données personnelles sont stockées chez l'hébergeur de Kamo.social et ne sont pas partagées à des tiers. Pas d'utilisation commerciale."
+      change: "Si la politique de confidentialité venait à changer, les utilisateurs seront notifiés par email."
+      user_change: "Les utilisateurs peuvent modifier et supprimer leurs données via l'interface du site web."
+      guarantee: "L'éditeur de Kamo.social ne propose aucune garantie de service et de sécurité compte-tenu de ses faibles moyens."
+    general_information:
+      title: "Informations générales"
+      editor: "Le présent site web est édité et exploité par"
+      guarantee: "Compte tenu de ses moyens, l'éditeur ne propose aucune garantie concernant la sécurité des données personnelles, dans la limite des législations françaises et européennes."
+    hosting:
+      title: "Hébergement du site"
+      hoster: "L'hébergement du site est assuré par"
+      servers: "Les serveurs sont situés en Europe."
+      address: "Adresse de l'hébergeur :"
+    personal_data_process:
+      title: "Traitement des données à caractère personnel"
+      protection: "La directive Européenne du 24 Octobre 1995, la loi française 78-87 du 6 janvier 1978, la loi française 2004-801 du 6 août 2004 ainsi que l'article L-226-13 du code pénal français protègent l'ensemble des données personnelles."
+      rights: "Conformément à la loi Informatique et Libertés du 6 janvier 1978 modifiée, et le Règlement Européen Général sur la Protection des Données 2016/679 (RGPD), vous disposez des droits d’accès, de rectification et de suppression des données personnelles vous concernant que vous pouvez exercer en écrivant à : hello@kamo.social"
+    collected_data:
+      title: "Données collectées"
+      no_commercial_use: "Les données collectées ne font l'objet d'aucun usage commercial."
+      explicit_data: "Toutes les données collectées et explicitement cédées par l'utilisateur sont destinées à l'usage principal du service Kamo.social :"
+      email: "Adresse email"
+      username: "Nom d'utilisateur"
+      password: "Mot de passe hashé"
+      interests: "Centres d'intérêts"
+      places: "Lieux de rencontre"
+      framework_data: "Les données suivantes sont collectées de part l'usage de cadriciels («frameworks») et de bibliothèques («librairies») qui créent ces données de manière automatique dans le cadre de la gestion de compte utilisateur."
+      security_data: "Ces données sont collectées à des fins de sécurité et de gestion."
+      nb_connections: "Nombre de connexions au compte utilisateur"
+      current_open_date: "Date d'ouverture de la session utilisateur courante"
+      last_open_date: "Date de l'ouverture de la précédente session utilisateur"
+      current_IP: "Adresse IP de la session utilisateur courante"
+      last_IP: "Adresse IP de la précédente session utilisateur"
+      confirmation_date: "Date de confirmation de la création de compte"
+      email_confirmation_date: "Date d'envoi de l'email de confirmation de création de compte"
+      creation_date: "Date de création de compte"
+      update_date: "Date de mise à jour du compte"

@@ -1,0 +1,27 @@
+#privacy-section a {
+  color: #1B998A;
+}
+
+#privacy-section p, #privacy-section ol {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#privacy-section p.bold {
+  font-weight: bold;
+}
+
+#privacy-section ol li {
+  margin: 20px auto;
+}
+
+#privacy-section ul li {
+  margin: 10px auto;
+}
+
+
+#privacy-section ul li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  margin-right: 10px;
+}

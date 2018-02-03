@@ -30,19 +30,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  preferences:
-    message:
-     wait: "Wait for an email inviting you to meet other people based on your interests and places."
-     should_add: "Please add your interests and places before you can receive emails based on them."
-    interests:
-      title: "Your interests"
-      edit: "Edit"
-      empty: "It seems you have no interests yet. Add some!"
-    places:
-      title: "Your places"
-      empty: "It seems you have no places yet. Add some!"
-    account:
-      title: "Your account"
-      description: "Edit your email address, password or delete your account"
-    button:
-      back: "Back"
+  edit_profile:
+    unhappy: "By deleting your account, your data will be erased from our servers. After deleting the account, you will need to create a new account to come back on Kamo.social."
+    cancel_my_account: "Delete my account"

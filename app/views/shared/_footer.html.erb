@@ -1,8 +1,7 @@
 <div id="footer">
   <ul class="conditions">
-    <li><a href="#"><%=t 'footer.terms_and_conditions' %></a></li><!--
-    --><li><a href="#"><%=t 'footer.privacy_policy' %></a></li><!--
-    --><li><a href="#"><%=t 'footer.credits' %></a></li>
+    <li><%= link_to t("footer.privacy_policy"), privacy_policy_path %></li><!--
+    --><li><%= link_to t("footer.credits"), credits_path %></li>
   </ul>
   <ul class="author">
     <li><%=t 'footer.made_with_love' %></li><!--

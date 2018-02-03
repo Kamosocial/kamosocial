@@ -36,10 +36,15 @@ fr:
      should_add: "Ajoutez vos centres intérêts et lieux avant de pouvoir recevoir des emails basés sur eux."
     interests:
       title: "Vos centres d'intérêts"
-      edit: "Éditer"
+      edit: "Modifier"
       empty: "Il semble que vous n'avez pas encore de centres d'intérêts. Ajoutez-en !"
     places:
       title: "Vos lieux de rencontre"
+      edit: "Modifier"
       empty: "Il semble que vous n'avez pas encore de lieux. Ajoutez-en !"
+    account:
+      title: "Votre compte"
+      edit: "Modifier"
+      description: "Modifiez votre adresse email, votre mot de passe ou supprimez votre compte"
     button:
       back: "Retour"

@@ -6,10 +6,14 @@ Rails.application.routes.draw do
     get '/preferences/places', to: 'places#index', as: "preferences_places"
     put '/preferences/places', to: 'places#edit', as: "edit_preferences_places"
 
+    get '/privacy-policy', to: 'privacy#index', as: "privacy_policy"
+    get '/credits', to: 'credits#index', as: "credits"
+
     # devise_for :users
     devise_scope :user do
       get "/login" => "devise/sessions#new" # custom path to login/sign_in
       get "/signup" => "devise/registrations#new", as: "signup" # custom path to sign_up/registration
+      get "/preferences/account" => "devise/registrations#edit", as: "preferences_account" # custom path to sign_up/registration
     end
     devise_for :users, controllers: { registrations: "registrations" }, path_names: { sign_in: 'login', sign_out: 'logout', password: 'password', confirmation: 'confirmation', unlock: 'unlock', registration: 'register', sign_up: 'sign_up' }
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

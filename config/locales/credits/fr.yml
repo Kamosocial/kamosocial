@@ -1,0 +1,42 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  credits:
+    title: "Crédits"
+    description: "Grâce au fabuleux Internet, Kamo.social a pu utiliser des ressources graphiques pour illuster son site web. Ici se trouvent les crédits pour chacune de ces ressources :"
+    picture_illustration_html: "La photo sur la page d'accueil de Stanford Smith sur <a href=\"https://unsplash.com/photos/UezWo2oY4M0\">Unsplash</a>"
+    font_title_html: "La police de titre utilisée est la Indie Flower par <a href=\"http://www.kimberlygeswein.com/\">Kimberley Geswein</a>"
+    font_body_html: "La police de contenu utilisée est la Open Sans par <a href=\"http://www.myfonts.com/person/Steve_Matteson\">Steve Matteson</a>"
+    font_awesome_html: "Les icônes utilisées pour les boutons et autres décorations sont de <a href=\"https://fontawesome.com\">Font Awesome</a>."
+    icon_email_html: "L'icône de l'email sur la page d'accueil est de Chris Penny sur <a href=\"https://thenounproject.com/cpenny/uploads/?i=247618\">The Noun Project</a>."
+    icon_shop_html: "L'icône de la boutique sur la page d'accueil est de Hans Paul Mösl Junior sur <a href=\"https://thenounproject.com/term/cafe/207098/\">The Noun Project</a>."
+    icon_eye_html: "L'icône de l'œil sur la page d'accueil est de Gregor Cresnar sur <a href=\"https://thenounproject.com/grega.cresnar/uploads/\">The Noun Project</a>."

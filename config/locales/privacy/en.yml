@@ -1,0 +1,71 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  privacy:
+    summary:
+      title: "Summary"
+      storage: "Personal datas is stored on Kamo.social's hosting provider and is not shared with any third party. No commercial use."
+      change: "If the privacy policy changes, users will be notified by email."
+      user_change: "Users can modify and delete their data via the website interface."
+      guarantee: "The publisher of Kamo. social does not offer any guarantee of service and security given its limited means."
+    general_information:
+      title: "General information"
+      editor: "This website is edited and operated by"
+      guarantee: "In view of its means, the publisher does not offer any guarantee regarding the security of personal data, within the limits of French and European legislation."
+    hosting:
+      title: "Hosting of the website"
+      hoster: "The site is hosted by"
+      servers: "Servers are located in Europe."
+      address: "Hosting provider address:"
+    personal_data_process:
+      title: "Processing of personal data"
+      protection: "The European Directive of 24 October 1995, the French law 78-87 of 6 January 1978, the French law 2004-801 of 6 August 2004 and the article L-226-13 of the French Penal Code protect all personal data."
+      rights: "In accordance with the French Data Protection Act of 6 January 1978 as amended, and the European General Data Protection Regulation 2016/679 (GDPR), you have the right to access, rectify and delete any personal data concerning you, which you may exercise by writing to: hello@kamo.social"
+    collected_data:
+      title: "Collected data"
+      no_commercial_use: "The collected data are not used for commercial purposes."
+      explicit_data: "All data collected and explicitly transferred by the user is intended for the main use of the Kamo. social service:"
+      email: "Email address"
+      username: "Username"
+      password: "Hashed password"
+      interests: "Interests"
+      places: "Places"
+      framework_data: "The following data is collected through the use of frameworks and libraries (libraries) that automatically create this data for the purpose of user account management."
+      security_data: "This data is collected for security and management purposes."
+      nb_connections: "Number of user account logins"
+      current_open_date: "Current user login date"
+      last_open_date: "Date of opening of previous user session"
+      current_IP: "IP address of the current user session"
+      last_IP: "IP address of the previous user session"
+      confirmation_date: "Confirmation date of account creation"
+      creation_date: "Date the account creation confirmation email was sent"
+      update_date: "Account update date"

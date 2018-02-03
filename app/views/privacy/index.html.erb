@@ -1,0 +1,64 @@
+<% if flash[:notice] %>
+  <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+<% end %>
+
+<div id="privacy-section">
+  <h2><%=t 'privacy.summary.title' %></h2>
+  <ol>
+    <li><%=t 'privacy.summary.storage' %></li>
+    <li><%=t 'privacy.summary.change' %></li>
+    <li><%=t 'privacy.summary.user_change' %></li>
+    <li><%=t 'privacy.summary.guarantee' %></li>
+  </ol>
+
+  <h2><%=t 'privacy.general_information.title' %></h2>
+  <p><%=t 'privacy.general_information.editor' %> <a href="http://mastodon.qowala.org/@KillianKemps">Killian Kemps</a>.</p>
+  <p><%=t 'privacy.general_information.guarantee' %></p>
+
+  <h2><%=t 'privacy.hosting.title' %></h2>
+  <p>
+    <%=t 'privacy.hosting.hoster' %> <a href="https://www.heroku.com/about">Heroku</a>.<br>
+    <%=t 'privacy.hosting.servers' %><br>
+    <%=t 'privacy.hosting.address' %><br>
+    <address>
+      Salesforce<br>
+
+      The Landmark @ 1 Market St.<br>
+      Suite 300<br>
+      San Francisco, CA<br>
+      94105<br>
+    </address>
+  </p>
+
+  <h2><%=t 'privacy.personal_data_process.title' %></h2>
+  <p><%=t 'privacy.personal_data_process.protection' %></p>
+  <p><%=t 'privacy.personal_data_process.rights' %></p>
+
+  <h3><%=t 'privacy.collected_data.title' %></h3>
+  <p class="bold"><%=t 'privacy.collected_data.no_commercial_use' %></p>
+  <p><%=t 'privacy.collected_data.explicit_data' %></p>
+  <ul>
+    <li><%=t 'privacy.collected_data.email' %></li>
+    <li><%=t 'privacy.collected_data.username' %></li>
+    <li><%=t 'privacy.collected_data.password' %></li>
+    <li><%=t 'privacy.collected_data.interests' %></li>
+    <li><%=t 'privacy.collected_data.places' %></li>
+  </ul>
+
+  <p><%=t 'privacy.collected_data.framework_data' %></p>
+  <p><%=t 'privacy.collected_data.security_data' %></p>
+  <ul>
+    <li><%=t 'privacy.collected_data.nb_connections' %></li>
+    <li><%=t 'privacy.collected_data.current_open_date' %></li>
+    <li><%=t 'privacy.collected_data.last_open_date' %></li>
+    <li><%=t 'privacy.collected_data.current_IP' %></li>
+    <li><%=t 'privacy.collected_data.last_IP' %></li>
+    <li><%=t 'privacy.collected_data.confirmation_date' %></li>
+    <li><%=t 'privacy.collected_data.email_confirmation_date' %></li>
+    <li><%=t 'privacy.collected_data.creation_date' %></li>
+    <li><%=t 'privacy.collected_data.update_date' %></li>
+  </ul>
+</div>

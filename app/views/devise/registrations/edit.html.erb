@@ -1,6 +1,15 @@
 <div id="devise-page">
   <h2><%= t(".title", resource: resource_class.model_name.human) %></h2>
 
+  <%= devise_error_messages! %>
+
+  <% if flash[:notice] %>
+    <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+  <% end %>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
 
@@ -23,9 +32,10 @@
     </div>
   <% end %>
 
-  <h3><%= t(".cancel_my_account") %></h3>
+  <h3><%= t("edit_profile.cancel_my_account") %></h3>
 
-  <p><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"), registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete %></p>
+  <p><%= t("edit_profile.unhappy") %></p>
 
-  <%= link_to t("devise.shared.links.back"), :back %>
+  <%= link_to t("edit_profile.cancel_my_account"), registration_path(resource_name), class: "button delete", data: { confirm: t(".are_you_sure") }, method: :delete %>
+  <%= link_to(t('preferences.button.back'), preferences_path, class: "button back") %>
 </div>
