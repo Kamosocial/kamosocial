@@ -1,0 +1,27 @@
+#credits-section a {
+  color: #1B998A;
+}
+
+#credits-section p, #credits-section ol {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+#credits-section p.bold {
+  font-weight: bold;
+}
+
+#credits-section ol li {
+  margin: 20px auto;
+}
+
+#credits-section ul li {
+  margin: 10px auto;
+}
+
+
+#credits-section ul li:before {
+  font-family: FontAwesome;
+  content: "\f105";
+  margin-right: 10px;
+}

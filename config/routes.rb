@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     put '/preferences/places', to: 'places#edit', as: "edit_preferences_places"
 
     get '/privacy-policy', to: 'privacy#index', as: "privacy_policy"
+    get '/credits', to: 'credits#index', as: "credits"
 
     # devise_for :users
     devise_scope :user do

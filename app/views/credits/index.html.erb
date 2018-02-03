@@ -1,0 +1,20 @@
+<% if flash[:notice] %>
+  <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
+<% end %>
+
+<div id="credits-section">
+  <h2><%=t 'credits.title' %></h2>
+  <p><%=t 'credits.description' %></p>
+  <ol>
+    <li><%=t 'credits.picture_illustration_html' %></li>
+    <li><%=t 'credits.font_title_html' %></li>
+    <li><%=t 'credits.font_body_html' %></li>
+    <li><%=t 'credits.font_awesome_html' %></li>
+    <li><%=t 'credits.icon_email_html' %></li>
+    <li><%=t 'credits.icon_shop_html' %></li>
+    <li><%=t 'credits.icon_eye_html' %></li>
+  </ol>
+</div>
