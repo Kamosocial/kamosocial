@@ -1,24 +1,41 @@
-# README
+# Kamo.social
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Presentation
 
-Things you may want to cover:
+[Kamo.social](https://www.kamo.social/) is a website which allows you to meet other people based on their interests.
 
-* Ruby version
+## Contribute
 
-* System dependencies
+You want to give a hand? Thank you very much!
 
-* Configuration
+:warning: This repository is hosted on gitlab.com. It is only mirrored on Github. If you want to contribute, please check [here](https://gitlab.com/KillianKemps/kamosocial)
 
-* Database creation
+## Installation
 
-* Database initialization
+### Requirements:
 
-* How to run the test suite
+- Ruby >=2.4.0
+- Bundler >=1.1.4.2
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup instructions
 
-* Deployment instructions
+1. Clone the repository to your computer
+2. Run `bundle install`
+3. Run the migrations `bin/rails db:migrate`
+4. Create a `.env` file and fill-in the following fields with your email parameters (it will allow you to send real emails in local):
 
-* ...
+```
+export EMAIL_DOMAIN=
+export EMAIL_USERNAME=
+export EMAIL_PASSWORD=
+```
+
+5. Run the server `source .env && bin/rails server`
+
+You now have the website up and running in local!
+
+## License
+
+Source code is licensed under the French [CeCILL](LICENSE.md) Free Software License.
+
+However the Kamo.social brand and its graphical assets are proprietary.
