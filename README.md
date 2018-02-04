@@ -8,6 +8,8 @@
 
 You want to give a hand? Thank you very much!
 
+:warning: This repository is hosted on gitlab.com. It is only mirrored on Github. If you want to contribute, please check [here](https://gitlab.com/KillianKemps/kamosocial)
+
 ## Installation
 
 ### Requirements:
@@ -21,11 +23,13 @@ You want to give a hand? Thank you very much!
 2. Run `bundle install`
 3. Run the migrations `bin/rails db:migrate`
 4. Create a `.env` file and fill-in the following fields with your email parameters (it will allow you to send real emails in local):
+
 ```
 export EMAIL_DOMAIN=
 export EMAIL_USERNAME=
 export EMAIL_PASSWORD=
 ```
+
 5. Run the server `source .env && bin/rails server`
 
 You now have the website up and running in local!
