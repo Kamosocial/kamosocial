@@ -33,4 +33,5 @@ en:
   places:
     add_button: "Edit"
     title: "Edit places"
-    description_html: "Write a list of your places in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
+    description: "Add places near where you live and where you would like to meet people regularly. Weekly, Monthly, it is up to you to arrange yourself. ;)"
+    search_helper: "You can search by name for places you already know, or simply add those which are already displayed and where there are already other people meeting."
