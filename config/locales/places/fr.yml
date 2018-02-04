@@ -33,4 +33,5 @@ fr:
   places:
     add_button: "Éditer"
     title: "Éditez vos lieux"
-    description_html: "Écrivez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"
+    description: "Ajoutez des lieux près d'où vous vivez et où vous souhaiteriez rencontrer des personnes régulièrement. Chaque semaine, chaque mois, c'est selon vous. ;)"
+    search_helper: "Vous pouvez chercher par nom des lieux que vous connaissez déjà ou sinon choisir parmi ceux déjà affichés et où il y a déjà d'autres personnes."
