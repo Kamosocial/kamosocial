@@ -8,7 +8,7 @@
 
 You want to give a hand? Thank you very much!
 
-:warning: This repository is hosted on gitlab.com. It is only mirrored on Github. If you want to contribute, please check [here](https://gitlab.com/KillianKemps/kamosocial)
+:warning: This repository is hosted on github.com. It is only mirrored on Gitlab. If you want to contribute, please check [here](https://github.com/KillianKemps/kamosocial)
 
 ## Installation
 
