@@ -28,6 +28,10 @@ gem 'gon', '~> 6.1.0'
 
 gem 'font-awesome-rails', '~> 4.7.0.3'
 
+# No version specified at 5.0.0 is the last one from 2016
+# But there is 7.0.0 in master
+gem 'normalize-rails'
+
 gem 'http_accept_language', '~> 2.1.1'
 
 # Use CoffeeScript for .coffee assets and views
