@@ -50,9 +50,9 @@ class User < ApplicationRecord
       place['osm_id'] = place['raw']['osm_id'].to_i unless place['osm_id']
       puts "2.this place: #{place}"
       user_places << Place.create_with(name: place['name'],
-                                        address: place['label'],
-                                        latitude: place['latitude'],
-                                        longitude: place['longitude'])
+                                       address: place['label'],
+                                       latitude: place['latitude'],
+                                       longitude: place['longitude'])
         .find_or_create_by(osm_id: place['osm_id'])
     end
     self.places = user_places
