@@ -20,9 +20,12 @@ class User < ApplicationRecord
     if value.empty?
       raise ArgumentError, 'Please add at least one interest'
     end
-    current_interest = value.split(',').collect{|interest| interest.strip.downcase}.uniq
+    inputted_interests = value.split(',')
+      .collect { |interest| interest.strip.downcase }
+      .uniq
+      .reject { |interest| interest.empty? }
     user_interests = []
-    current_interest.each do |interest|
+    inputted_interests.each do |interest|
       user_interests << Interest.find_or_create_by(name: interest)
     end
     self.interests = user_interests

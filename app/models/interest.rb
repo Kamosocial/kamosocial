@@ -3,5 +3,5 @@ class Interest < ApplicationRecord
 
   # validates :name, uniqueness: { case_sensitive: false }
   validates :name, uniqueness: { case_sensitive: false,
-    scope: :user_id }
+    scope: :user_id }, length: { minimum: 2 }
 end
