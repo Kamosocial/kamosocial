@@ -4,7 +4,8 @@ class InterestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @interests_sample = Interest.limit(10)
+    @interests_sample = Interest.where.not(name: current_user.interests.collect{|interest| interest.name})
+      .order(updated_at: :desc).limit(10)
   end
 
   def edit

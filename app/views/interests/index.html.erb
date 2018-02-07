@@ -7,12 +7,18 @@
       <div class="flash alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><%= flash[:alert] %></div>
     <% end %>
 
-    <div id="interests-section">
-      <h3><%=t 'interests.title' %></h3>
-      <p><%=t 'interests.description_html' %></p>
-      <%= f.label :interests %><br />
-      <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
-    </div>
+    <h3><%=t 'interests.title' %></h3>
+    <p><%=t 'interests.description_html' %></p>
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests_list, placeholder: "ecology, open source, rock music..." %>
+
+    <p><%=t 'interests.interests_picking' %></p>
+    <ul id="interests-list">
+      <% @interests_sample.each do |interest| %>
+        <li><%= interest.name %></li>
+      <% end %>
+    </ul>
+
     <div class="buttons-line">
       <%= link_to(t('preferences.button.back'), preferences_path, class: "button back") %>
       <%= f.submit t 'interests.add_button', class: "form-submit" %>
