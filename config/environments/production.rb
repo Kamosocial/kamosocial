@@ -63,7 +63,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "comminterest_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'comminterest.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'www.kamo.social' }
 
   config.action_mailer.delivery_method = :smtp
 
