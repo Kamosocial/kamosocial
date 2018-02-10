@@ -31,7 +31,10 @@
 
 fr:
   homepage:
-    welcome_html: "Rencontrez des personnes avec les mêmes centres d'intérêts que vous.<br/>Ou pas. C'est bien aussi d'avoir l'esprit ouvert. :)"
+    welcome:
+      phrase_html: "Rencontrez des personnes avec les mêmes centres d'intérêts que vous.<br/>Ou pas. C'est bien aussi d'avoir l'esprit ouvert. :)"
+      account_deletion_highlight: "Vous pouvez supprimer votre compte"
+      any_moment: "à tout moment"
     explanation:
       title: "Comment ?"
       email: "Recevez par email des invitations pour rencontrer d'autres personnes et sociabilisez !"
