@@ -31,6 +31,7 @@
 
 fr:
   privacy:
+    title: "Politique de confidentialité"
     summary:
       title: "Résumé"
       storage: "Les données personnelles sont stockées chez l'hébergeur de Kamo.social et ne sont pas partagées à des tiers. Pas d'utilisation commerciale."

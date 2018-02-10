@@ -31,6 +31,7 @@
 
 en:
   privacy:
+    title: "Privacy Policy"
     summary:
       title: "Summary"
       storage: "Personal datas is stored on Kamo.social's hosting provider and is not shared with any third party. No commercial use."
