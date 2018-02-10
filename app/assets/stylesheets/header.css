@@ -1,11 +1,13 @@
-h1 {
+#logo {
+  font-family: 'indie_flowerregular', sans-serif;
   font-size: 3rem;
+  font-weight: bold;
   color: #fff;
   margin: 0;
   text-shadow: 4px 4px 1px #1B998A;
 }
 
-h1 a {
+#logo a {
   text-decoration: none;
   color: #fff;
 }
