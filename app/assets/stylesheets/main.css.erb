@@ -24,6 +24,12 @@ h1, h2, h3 {
   font-family: 'indie_flowerregular', sans-serif;
 }
 
+h1 {
+  color: #F4D35E;
+  margin-top: 60px;
+  font-size: 2.5rem;
+}
+
 h2 {
   font-size: 2rem;
   color: #F4D35E;
@@ -61,23 +67,6 @@ ul {
 
 #container {
   flex: 1 0 auto;
-}
-
-#welcome-section {
-  font-family: 'indie_flowerregular', sans-serif;
-  font-size: 2.2rem;
-  margin-top: -125px;
-  padding: 380px 0;
-  width: 100%;
-  height: 60px;
-  color: #1B998A;
-  background-color: #F4D35E;
-  color: #fff;
-  text-shadow: 2px 2px 1px #1B998A;
-  /* Picture credits: Photo by Stanford Smith on Unsplash */
-  background-image: linear-gradient(to bottom, rgba(244, 211, 94, 1), rgba(244, 211, 94, 0.5)), url(<%= image_path 'stanford-smith-369293.jpg' %>);
-  background-size: cover;
-  background-position: bottom;
 }
 
 .signup-button, #signup-button-bottom {
@@ -270,12 +259,6 @@ input[type=submit]:hover {
 
   h3 {
     margin: 60px auto 10px;
-  }
-
-  #welcome-section {
-    padding: 180px 15px;
-    width: calc(100% - 30px);
-    font-size: 1.5rem;
   }
 
   #explanation-section {

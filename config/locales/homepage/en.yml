@@ -31,7 +31,10 @@
 
 en:
   homepage:
-    welcome_html: "Meet people with the same interests as you.<br/>Or not. It's cool to open your mind as well. :)"
+    welcome:
+      phrase_html: "Meet people with the same interests as you.<br/>Or not. It's cool to open your mind as well. :)"
+      account_deletion_highlight: "You can delete your account"
+      any_moment: "at any moment"
     explanation:
       title: "How does it work?"
       email: "Receive invitations by email to meet other people and socialize!"

@@ -1,8 +1,7 @@
 <div id="welcome-section">
-  <p>
-    <%=t 'homepage.welcome_html' %>
-  </p>
+  <h1><%=t 'homepage.welcome.phrase_html' %></h1>
   <%= link_to t("homepage.signup.button"), signup_path, class: "signup-button" %>
+  <div class="account-deletion-highlight">(<%=t 'homepage.welcome.account_deletion_highlight' %> <%= link_to t("homepage.welcome.any_moment"), privacy_policy_path %>)</div>
 </div>
 
 <div id="explanation-section">
