@@ -59,6 +59,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 mymap.addControl(searchControl);
 
+var opl = new L.OverPassLayer({
+    'query': 'node({{bbox}})["amenity"="restaurant"];out;',
+});
+
+mymap.addLayer(opl);
+
 // Populate markers with already registered places
 if (gon) {
   const places = gon.places;
