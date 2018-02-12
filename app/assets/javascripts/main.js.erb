@@ -19,6 +19,18 @@ function popupTemplate(source, place, interests) {
   return popup
 }
 
+function PoiPopupTemplate(tags, id) {
+  console.log('tags are : ', tags);
+  var popup = `<div class="popup-label"><div class="name"><a href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
+  popup += `<div class="amenity">${tags['amenity']}</div>`;
+  if (tags['addr:street'] && tags['addr:city']) {
+    const address = `${tags['addr:housenumber']} ${tags['addr:street']} ${tags['addr:postcode']} ${tags['addr:city']}`;
+    popup += `<div class="address">${address}</div>`;
+  }
+  popup += `<button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  return popup
+}
+
 function popupCallback({query, result}) {
   var event = new CustomEvent('custom/openedPopup', { detail: result });
   window.dispatchEvent(event);
@@ -51,7 +63,7 @@ mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
 mymap.on('blur', function() { mymap.scrollWheelZoom.disable(); });
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>, POI via <a href="http://www.overpass-api.de/">Overpass API</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
@@ -60,7 +72,39 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 mymap.addControl(searchControl);
 
 var opl = new L.OverPassLayer({
-    'query': 'node({{bbox}})["amenity"="restaurant"];out;',
+  'query': 'node({{bbox}})["amenity"="restaurant"];out;',
+  onSuccess: function(data) {
+    for (let i = 0; i < data.elements.length; i++) {
+      let pos;
+      let marker;
+      const e = data.elements[i];
+
+      // Don't display elements if they don't even have a name
+      if (e.tags['name'] === undefined) {
+        continue;
+      }
+
+      if (e.id in this._ids) {
+        continue;
+      }
+
+      this._ids[e.id] = true;
+
+      if (e.type === 'node') {
+        pos = new L.LatLng(e.lat, e.lon);
+      } else {
+        pos = new L.LatLng(e.center.lat, e.center.lon);
+      }
+
+      marker = L.marker(pos, { icon: icon_url });
+
+      const popupContent = PoiPopupTemplate(e.tags, e.id);
+      const popup = L.popup().setContent(popupContent);
+      marker.bindPopup(popup);
+
+      this._markers.addLayer(marker);
+    }
+  }
 });
 
 mymap.addLayer(opl);
