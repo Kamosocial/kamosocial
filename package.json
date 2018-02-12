@@ -1,5 +1,7 @@
 {
   "name": "comminterest",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "leaflet-overpass-layer": "^2.8.2"
+  }
 }

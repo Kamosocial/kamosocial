@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require leaflet
+//= require leaflet-overpass-layer/dist/OverPassLayer.bundle.js
 //= require_tree .
