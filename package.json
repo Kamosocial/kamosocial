@@ -1,5 +1,5 @@
 {
-  "name": "comminterest",
+  "name": "kamosocial",
   "private": true,
   "dependencies": {
     "leaflet-overpass-layer": "^2.8.2"
