@@ -20,7 +20,7 @@ function popupTemplate(source, place, interests) {
 }
 
 function PoiPopupTemplate(tags, id) {
-  var popup = `<div class="popup-label"><div class="name"><a href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
+  var popup = `<div class="popup-label"><div class="name"><a target="_blank" href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
   popup += `<div class="amenity">${tags['amenity']}</div>`;
   if (tags['addr:street'] && tags['addr:city']) {
     const address = `${tags['addr:housenumber']} ${tags['addr:street']} ${tags['addr:postcode']} ${tags['addr:city']}`;
@@ -143,7 +143,7 @@ var pubsLayer = new L.OverPassLayer({
   }
 });
 
-var coffeesLayer = new L.OverPassLayer({
+var cafesLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="cafe"];out;',
   onSuccess: function(data) {
     const displayCoffee = overPassLayerDisplay.bind(this);
@@ -159,10 +159,16 @@ var barsLayer = new L.OverPassLayer({
   }
 });
 
-mymap.addLayer(restaurantsLayer);
-mymap.addLayer(pubsLayer);
-mymap.addLayer(coffeesLayer);
-mymap.addLayer(barsLayer);
+mymap.addLayer(cafesLayer);
+
+overlayMaps = {
+  "Restaurants": restaurantsLayer,
+  "Cafes": cafesLayer,
+  "Pubs": pubsLayer,
+  "Bars": barsLayer
+};
+
+L.control.layers(null, overlayMaps).addTo(mymap);
 
 // Populate markers with already registered places
 if (gon) {
