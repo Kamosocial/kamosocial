@@ -20,7 +20,6 @@ function popupTemplate(source, place, interests) {
 }
 
 function PoiPopupTemplate(tags, id) {
-  console.log('tags are : ', tags);
   var popup = `<div class="popup-label"><div class="name"><a href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
   popup += `<div class="amenity">${tags['amenity']}</div>`;
   if (tags['addr:street'] && tags['addr:city']) {
@@ -47,6 +46,30 @@ const icon_url = new L.Icon({
               shadowSize: [41, 41]
             });
 
+const beerMarker = L.AwesomeMarkers.icon({
+  icon: 'beer',
+  markerColor: 'green',
+  prefix: 'fa'
+});
+
+const drinkMarker = L.AwesomeMarkers.icon({
+  icon: 'beer',
+  markerColor: 'purple',
+  prefix: 'fa'
+});
+
+const cutleryMarker = L.AwesomeMarkers.icon({
+  icon: 'cutlery',
+  markerColor: 'red',
+  prefix: 'fa'
+});
+
+const coffeeMarker = L.AwesomeMarkers.icon({
+  icon: 'coffee',
+  markerColor: 'blue',
+  prefix: 'fa'
+});
+
 const searchControl = new window.GeoSearch.GeoSearchControl({
   provider: provider,
   showPopup: true,
@@ -71,43 +94,75 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 mymap.addControl(searchControl);
 
-var opl = new L.OverPassLayer({
+function overPassLayerDisplay (data, markerIcon) {
+  for (let i = 0; i < data.elements.length; i++) {
+    let pos;
+    let marker;
+    const e = data.elements[i];
+
+    // Don't display elements if they don't even have a name
+    if (e.tags['name'] === undefined) {
+      continue;
+    }
+
+    if (e.id in this._ids) {
+      continue;
+    }
+
+    this._ids[e.id] = true;
+
+    if (e.type === 'node') {
+      pos = new L.LatLng(e.lat, e.lon);
+    } else {
+      pos = new L.LatLng(e.center.lat, e.center.lon);
+    }
+
+    marker = L.marker(pos, { icon: markerIcon });
+
+    const popupContent = PoiPopupTemplate(e.tags, e.id);
+    const popup = L.popup().setContent(popupContent);
+    marker.bindPopup(popup);
+
+    this._markers.addLayer(marker);
+  }
+}
+
+var restaurantsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="restaurant"];out;',
   onSuccess: function(data) {
-    for (let i = 0; i < data.elements.length; i++) {
-      let pos;
-      let marker;
-      const e = data.elements[i];
-
-      // Don't display elements if they don't even have a name
-      if (e.tags['name'] === undefined) {
-        continue;
-      }
-
-      if (e.id in this._ids) {
-        continue;
-      }
-
-      this._ids[e.id] = true;
-
-      if (e.type === 'node') {
-        pos = new L.LatLng(e.lat, e.lon);
-      } else {
-        pos = new L.LatLng(e.center.lat, e.center.lon);
-      }
-
-      marker = L.marker(pos, { icon: icon_url });
-
-      const popupContent = PoiPopupTemplate(e.tags, e.id);
-      const popup = L.popup().setContent(popupContent);
-      marker.bindPopup(popup);
-
-      this._markers.addLayer(marker);
-    }
+    const displayCutlery = overPassLayerDisplay.bind(this);
+    displayCutlery(data, cutleryMarker);
   }
 });
 
-mymap.addLayer(opl);
+var pubsLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="pub"];out;',
+  onSuccess: function(data) {
+    const displayBeer = overPassLayerDisplay.bind(this);
+    displayBeer(data, beerMarker);
+  }
+});
+
+var coffeesLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="cafe"];out;',
+  onSuccess: function(data) {
+    const displayCoffee = overPassLayerDisplay.bind(this);
+    displayCoffee(data, coffeeMarker);
+  }
+});
+
+var barsLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="bar"];out;',
+  onSuccess: function(data) {
+    const displayDrink = overPassLayerDisplay.bind(this);
+    displayDrink(data, drinkMarker);
+  }
+});
+
+mymap.addLayer(restaurantsLayer);
+mymap.addLayer(pubsLayer);
+mymap.addLayer(coffeesLayer);
+mymap.addLayer(barsLayer);
 
 // Populate markers with already registered places
 if (gon) {
