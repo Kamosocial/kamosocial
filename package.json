@@ -2,6 +2,7 @@
   "name": "kamosocial",
   "private": true,
   "dependencies": {
-    "leaflet-overpass-layer": "^2.8.2"
+    "leaflet-overpass-layer": "^2.8.2",
+    "leaflet.markercluster": "^1.3.0"
   }
 }
