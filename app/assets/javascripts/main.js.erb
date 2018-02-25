@@ -1,6 +1,14 @@
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
+var latestPlace = {};
+var places_form = document.getElementById('user_places_list');
+var places_list = document.getElementById('added-places');
+var addedPlaces = JSON.parse(places_form.value) || [];
+
+// Register first state by taking into account app's data
+registerState();
+
 const provider = new window.GeoSearch.OpenStreetMapProvider();
 
 function addPlaceButton() {
@@ -21,10 +29,8 @@ function popupTemplate(source, place, interests) {
 
 function PoiPopupTemplate(tags, id) {
   var popup = `<div class="popup-label"><div class="name"><a target="_blank" href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
-  popup += `<div class="amenity">${tags['amenity']}</div>`;
-  if (tags['addr:street'] && tags['addr:city']) {
-    const address = `${tags['addr:housenumber']} ${tags['addr:street']} ${tags['addr:postcode']} ${tags['addr:city']}`;
-    popup += `<div class="address">${address}</div>`;
+  if (tags['address']) {
+    popup += `<div class="address">${tags['address']}</div>`;
   }
   popup += `<button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
   return popup
@@ -122,6 +128,33 @@ function overPassLayerDisplay (data, markerIcon) {
     const popupContent = PoiPopupTemplate(e.tags, e.id);
     const popup = L.popup().setContent(popupContent);
     marker.bindPopup(popup);
+    marker.on('popupopen', function(popup) {
+      // Caution: According to MDN it is not supported on all browsers: https://developer.mozilla.org/en-US/docs/Web/API/Request
+      // May need to be replaced by XMLHttpRequest later on.
+      const addressRequest = new Request(`https://nominatim.openstreetmap.org/reverse?osm_type=N&osm_id=${e.id}&format=json&zoom=18`);
+      fetch(addressRequest)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong on api server!');
+        }
+      })
+      .then(response => {
+        e.tags['address'] = response['display_name'];
+        e.tags['osm_id'] = e['id'];
+        e.tags['latitude'] = e['lat'];
+        e.tags['longitude'] = e['lon'];
+        // Update latest place to be ready to be added
+        latestPlace = e.tags;
+        // Update popup with address
+        var popupContent = PoiPopupTemplate(e.tags, e.id);
+        this._popup.setContent(popupContent);
+        this._popup.update();
+      }).catch(error => {
+        console.error(error);
+      });
+    });
 
     this._markers.addLayer(marker);
   }
@@ -181,14 +214,6 @@ if (gon) {
       .on('popupopen', function(event) { latestPlace = place });
   }
 }
-
-var latestPlace = {};
-var places_form = document.getElementById('user_places_list');
-var places_list = document.getElementById('added-places');
-var addedPlaces = JSON.parse(places_form.value) || [];
-
-// Register first state by taking into account app's data
-registerState();
 
 function deletePlaceButton(index) {
   addedPlaces.splice(index, 1);
