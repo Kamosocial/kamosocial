@@ -42,19 +42,9 @@ function popupCallback({query, result}) {
   return popupTemplate('osm', result);
 }
 
-const icon_url = new L.Icon({
-              iconUrl: '<%= image_path 'marker-icon.png' %>',
-              retinaUrl: '<%= image_path 'marker-icon-2x.png' %>',
-              shadowUrl: '<%= image_path 'marker-shadow.png' %>',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34],
-              shadowSize: [41, 41]
-            });
-
-const beerMarker = L.AwesomeMarkers.icon({
-  icon: 'beer',
-  markerColor: 'green',
+const placeMarker = L.AwesomeMarkers.icon({
+  icon: 'comments',
+  markerColor: 'orange',
   prefix: 'fa'
 });
 
@@ -82,7 +72,7 @@ const searchControl = new window.GeoSearch.GeoSearchControl({
   popupFormat: popupCallback,
   style: 'bar',
   maxMarkers: 5,
-  marker: { icon: icon_url  },
+  marker: { icon: placeMarker  },
   keepResult: true
 });
 
@@ -164,7 +154,7 @@ var pubsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="pub"];out;',
   onSuccess: function(data) {
     const displayBeer = overPassLayerDisplay.bind(this);
-    displayBeer(data, beerMarker);
+    displayBeer(data, cutleryMarker);
   }
 });
 
@@ -201,7 +191,7 @@ if (gon) {
   for (var i = 0; i < places.length; i++) {
     let place = places[i].place;
     let interests = places[i].interests;
-    L.marker([place.latitude, place.longitude], { icon: icon_url  }).addTo(mymap)
+    L.marker([place.latitude, place.longitude], { icon: placeMarker  }).addTo(mymap)
       .bindPopup(popupTemplate('app', place, interests))
       .on('popupopen', function(event) { latestPlace = place });
   }
