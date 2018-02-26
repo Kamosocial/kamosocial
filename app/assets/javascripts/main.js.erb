@@ -3,11 +3,14 @@ addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
 var latestPlace = {};
 var places_form = document.getElementById('user_places_list');
-var places_list = document.getElementById('added-places');
-var addedPlaces = JSON.parse(places_form.value) || [];
+// If the current page has not form, then no need to trigger the rest
+if (places_form) {
+  var places_list = document.getElementById('added-places');
+  var addedPlaces = JSON.parse(places_form.value) || [];
 
-// Register first state by taking into account app's data
-registerState();
+  // Register first state by taking into account app's data
+  registerState();
+}
 
 const provider = new window.GeoSearch.OpenStreetMapProvider();
 
