@@ -160,14 +160,6 @@ function overPassLayerDisplay (data, markerIcon) {
   }
 }
 
-var restaurantsLayer = new L.OverPassLayer({
-  'query': 'node({{bbox}})["amenity"="restaurant"];out;',
-  onSuccess: function(data) {
-    const displayCutlery = overPassLayerDisplay.bind(this);
-    displayCutlery(data, cutleryMarker);
-  }
-});
-
 var pubsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="pub"];out;',
   onSuccess: function(data) {
@@ -195,7 +187,6 @@ var barsLayer = new L.OverPassLayer({
 mymap.addLayer(cafesLayer);
 
 overlayMaps = {
-  "Restaurants": restaurantsLayer,
   "Cafes": cafesLayer,
   "Pubs": pubsLayer,
   "Bars": barsLayer
