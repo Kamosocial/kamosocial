@@ -201,7 +201,8 @@ overlayMaps = {
   "Bars": barsLayer
 };
 
-L.control.layers(null, overlayMaps).addTo(mymap);
+// Set overlayMaps as Base in order to be exclusive for performance issues.
+L.control.layers(overlayMaps, null).addTo(mymap);
 
 // Populate markers with already registered places
 if (gon) {
