@@ -1,6 +1,17 @@
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
+var latestPlace = {};
+var places_form = document.getElementById('user_places_list');
+// If the current page has not form, then no need to trigger the rest
+if (places_form) {
+  var places_list = document.getElementById('added-places');
+  var addedPlaces = JSON.parse(places_form.value) || [];
+
+  // Register first state by taking into account app's data
+  registerState();
+}
+
 const provider = new window.GeoSearch.OpenStreetMapProvider();
 
 function addPlaceButton() {
@@ -19,21 +30,44 @@ function popupTemplate(source, place, interests) {
   return popup
 }
 
+function PoiPopupTemplate(tags, id) {
+  var popup = `<div class="popup-label"><div class="name"><a target="_blank" href="https://www.openstreetmap.org/node/${id}">${tags.name}</a></div>`;
+  if (tags['address']) {
+    popup += `<div class="address">${tags['address']}</div>`;
+  }
+  popup += `<button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  return popup
+}
+
 function popupCallback({query, result}) {
   var event = new CustomEvent('custom/openedPopup', { detail: result });
   window.dispatchEvent(event);
   return popupTemplate('osm', result);
 }
 
-const icon_url = new L.Icon({
-              iconUrl: '<%= image_path 'marker-icon.png' %>',
-              retinaUrl: '<%= image_path 'marker-icon-2x.png' %>',
-              shadowUrl: '<%= image_path 'marker-shadow.png' %>',
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34],
-              shadowSize: [41, 41]
-            });
+const placeMarker = L.AwesomeMarkers.icon({
+  icon: 'comments',
+  markerColor: 'orange',
+  prefix: 'fa'
+});
+
+const drinkMarker = L.AwesomeMarkers.icon({
+  icon: 'beer',
+  markerColor: 'purple',
+  prefix: 'fa'
+});
+
+const cutleryMarker = L.AwesomeMarkers.icon({
+  icon: 'cutlery',
+  markerColor: 'red',
+  prefix: 'fa'
+});
+
+const coffeeMarker = L.AwesomeMarkers.icon({
+  icon: 'coffee',
+  markerColor: 'blue',
+  prefix: 'fa'
+});
 
 const searchControl = new window.GeoSearch.GeoSearchControl({
   provider: provider,
@@ -41,7 +75,7 @@ const searchControl = new window.GeoSearch.GeoSearchControl({
   popupFormat: popupCallback,
   style: 'bar',
   maxMarkers: 5,
-  marker: { icon: icon_url  },
+  marker: { icon: placeMarker  },
   keepResult: true
 });
 
@@ -51,7 +85,7 @@ mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
 mymap.on('blur', function() { mymap.scrollWheelZoom.disable(); });
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>, POI via <a href="http://www.overpass-api.de/">Overpass API</a>',
     maxZoom: 18,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
@@ -59,25 +93,112 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 mymap.addControl(searchControl);
 
+function overPassLayerDisplay (data, markerIcon) {
+  for (let i = 0; i < data.elements.length; i++) {
+    let pos;
+    let marker;
+    const e = data.elements[i];
+
+    // Don't display elements if they don't even have a name
+    if (e.tags['name'] === undefined) {
+      continue;
+    }
+
+    if (e.id in this._ids) {
+      continue;
+    }
+
+    this._ids[e.id] = true;
+
+    if (e.type === 'node') {
+      pos = new L.LatLng(e.lat, e.lon);
+    } else {
+      pos = new L.LatLng(e.center.lat, e.center.lon);
+    }
+
+    marker = L.marker(pos, { icon: markerIcon });
+
+    const popupContent = PoiPopupTemplate(e.tags, e.id);
+    const popup = L.popup().setContent(popupContent);
+    marker.bindPopup(popup);
+    marker.on('popupopen', function(popup) {
+      // Caution: According to MDN it is not supported on all browsers: https://developer.mozilla.org/en-US/docs/Web/API/Request
+      // May need to be replaced by XMLHttpRequest later on.
+      const addressRequest = new Request(`https://nominatim.openstreetmap.org/reverse?osm_type=N&osm_id=${e.id}&format=json&zoom=18`);
+      fetch(addressRequest)
+      .then(response => {
+        if (response.status === 200) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong on api server!');
+        }
+      })
+      .then(response => {
+        e.tags['address'] = response['display_name'];
+        e.tags['osm_id'] = e['id'];
+        e.tags['latitude'] = e['lat'];
+        e.tags['longitude'] = e['lon'];
+        // Update latest place to be ready to be added
+        latestPlace = e.tags;
+        // Update popup with address
+        var popupContent = PoiPopupTemplate(e.tags, e.id);
+        this._popup.setContent(popupContent);
+        this._popup.update();
+      }).catch(error => {
+        console.error(error);
+      });
+    });
+
+    this._markers.addLayer(marker);
+  }
+}
+
+var pubsLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="pub"];out;',
+  onSuccess: function(data) {
+    const displayBeer = overPassLayerDisplay.bind(this);
+    displayBeer(data, cutleryMarker);
+  }
+});
+
+var cafesLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="cafe"];out;',
+  onSuccess: function(data) {
+    const displayCoffee = overPassLayerDisplay.bind(this);
+    displayCoffee(data, coffeeMarker);
+  }
+});
+
+var barsLayer = new L.OverPassLayer({
+  'query': 'node({{bbox}})["amenity"="bar"];out;',
+  onSuccess: function(data) {
+    const displayDrink = overPassLayerDisplay.bind(this);
+    displayDrink(data, drinkMarker);
+  }
+});
+
+mymap.addLayer(cafesLayer);
+
+overlayMaps = {
+  "Cafes": cafesLayer,
+  "Pubs": pubsLayer,
+  "Bars": barsLayer
+};
+
+// Set overlayMaps as Base in order to be exclusive for performance issues.
+L.control.layers(overlayMaps, null).addTo(mymap);
+
 // Populate markers with already registered places
 if (gon) {
   const places = gon.places;
   for (var i = 0; i < places.length; i++) {
     let place = places[i].place;
     let interests = places[i].interests;
-    L.marker([place.latitude, place.longitude], { icon: icon_url  }).addTo(mymap)
+    L.marker([place.latitude, place.longitude], { icon: placeMarker  }).addTo(mymap)
       .bindPopup(popupTemplate('app', place, interests))
       .on('popupopen', function(event) { latestPlace = place });
   }
 }
-
-var latestPlace = {};
-var places_form = document.getElementById('user_places_list');
-var places_list = document.getElementById('added-places');
-var addedPlaces = JSON.parse(places_form.value) || [];
-
-// Register first state by taking into account app's data
-registerState();
 
 function deletePlaceButton(index) {
   addedPlaces.splice(index, 1);

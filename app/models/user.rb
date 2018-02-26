@@ -44,13 +44,13 @@ class User < ApplicationRecord
     user_places = []
     current_place.each do |place|
       place['name'] = place['label'].split(',')[0] unless place['name']
-      place['label'] = place['label'] unless place['address']
+      place['address'] = place['label'] unless place['address']
       place['latitude'] = place['y'].to_f unless place['latitude']
       place['longitude'] = place['x'].to_f unless place['longitude']
       place['osm_id'] = place['raw']['osm_id'].to_i unless place['osm_id']
       puts "2.this place: #{place}"
       user_places << Place.create_with(name: place['name'],
-                                       address: place['label'],
+                                       address: place['address'],
                                        latitude: place['latitude'],
                                        longitude: place['longitude'])
         .find_or_create_by(osm_id: place['osm_id'])

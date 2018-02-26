@@ -49,6 +49,13 @@
   border-radius: 7px;
 }
 
+/* PLACES */
+#places-section .explanation-marker {
+  position: relative;
+  top: -5px;
+  display: inline-block;
+}
+
 /*** DISABLED
 #interests-section #interests-list li:hover {
   color: white;
