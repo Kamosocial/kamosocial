@@ -25,9 +25,10 @@ You want to give a hand? Thank you very much!
 4. Create a `.env` file and fill-in the following fields with your email parameters (it will allow you to send real emails in local):
 
 ```
-export EMAIL_DOMAIN=
-export EMAIL_USERNAME=
-export EMAIL_PASSWORD=
+export MAILER_DOMAIN=
+export MAILER_ADDRESS=
+export MAILER_USERNAME=
+export MAILER_PASSWORD=
 ```
 
 5. Run the server `source .env && bin/rails server`
