@@ -72,13 +72,13 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "mail.gandi.net",
+    address: ENV["MAILER_ADDRESS"],
     port: 587,
-    domain: ENV["EMAIL_DOMAIN"],
+    domain: ENV["MAILER_DOMAIN"],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["EMAIL_USERNAME"],
-    password: ENV["EMAIL_PASSWORD"]
+    user_name: ENV["MAILER_USERNAME"],
+    password: ENV["MAILER_PASSWORD"]
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

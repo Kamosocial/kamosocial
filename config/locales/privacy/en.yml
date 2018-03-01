@@ -47,6 +47,10 @@ en:
       hoster: "The site is hosted by"
       servers: "Servers are located in Europe."
       address: "Hosting provider address:"
+    email:
+      title: "Sending emails"
+      provider_html: "Emails are sent by <a href=\"https://en.mailjet.com/\">Mailjet</a>"
+      gdpr_html: "This French provider has declared himself as compliant with the <a href=\"https://en.mailjet.com/gdpr/\">GDPR</a>. In order to send email, the provider processes Kamo.social users email addresses."
     personal_data_process:
       title: "Processing of personal data"
       protection: "The European Directive of 24 October 1995, the French law 78-87 of 6 January 1978, the French law 2004-801 of 6 August 2004 and the article L-226-13 of the French Penal Code protect all personal data."
