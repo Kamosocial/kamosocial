@@ -1,9 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  user: one
+  name: ecology
 
 two:
-  name: MyString
-  user: two
+  name: art
