@@ -39,10 +39,13 @@ class User < ApplicationRecord
     if value.empty?
       raise ArgumentError, 'Please add at least one place'
     end
-    current_place = JSON.parse(value)
-    puts "currents place: #{current_place}"
+    inputted_places = JSON.parse(value)
+    puts "currents place: #{inputted_places}"
     user_places = []
-    current_place.each do |place|
+    inputted_places.each do |place|
+      if place['raw']['type'] == 'city' || place['raw']['type'] == 'administrative'
+        pois = convert_city_to_poi(place)
+      end
       place['name'] = place['label'].split(',')[0] unless place['name']
       place['address'] = place['label'] unless place['address']
       place['latitude'] = place['y'].to_f unless place['latitude']
@@ -56,6 +59,11 @@ class User < ApplicationRecord
         .find_or_create_by(osm_id: place['osm_id'])
     end
     self.places = user_places
+  end
+
+  def convert_city_to_poi(city)
+    puts "Converting from city #{city}"
+    city
   end
 
   def places_list
