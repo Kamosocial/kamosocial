@@ -26,7 +26,15 @@ function popupTemplate(source, place, interests) {
   var address = full_address_array.join();
   var popup = `<div class="popup-label"><div class="name">${name}</div>`;
   popup += interests != undefined ? `<span class="interests">${interests.join(', ')}</span>` : ``;
-  popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  // Map data for data retrieved directly from OSM
+  if (place.raw) {
+    place.type = place.raw.type;
+    place.osm_type = place.raw.osm_type;
+  }
+  // Only display "add" button if the place is a meeting place
+  if (place.type != "city" && place.type != "administrative" && place.osm_type != "relation") {
+    popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  }
   return popup
 }
 
