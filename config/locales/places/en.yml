@@ -34,5 +34,5 @@ en:
     add_button: "Edit"
     title: "Edit places"
     description: "Add places near where you live and where you would like to meet people regularly. Weekly, Monthly, it is up to you to arrange yourself. ;)"
-    search_helper_html: "You can choose from the places already registered <span class=\"awesome-marker-icon-orange awesome-marker explanation-marker\"><i class=\"fa fa-comments  icon-white\"></i></span> or search for places near you. You can display bars, cafes and pubs with the selector switch in the upper right corner."
+    search_helper_html: "You can choose from the places already registered <span class=\"awesome-marker-icon-orange awesome-marker explanation-marker\"><i class=\"fa fa-comments  icon-white\"></i></span> or search for places near you. You can use the geolocation button to center the map on your position (the data won't be transmitted to Kamo.social server) and you can display bars, cafes and pubs with the selector switch in the upper right corner."
     caution: "And above all, make sure you enter a specific location so that it is easy to make an appointment. ;)"
