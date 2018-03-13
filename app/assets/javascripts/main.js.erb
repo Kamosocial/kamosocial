@@ -101,6 +101,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 mymap.addControl(searchControl);
 
+L.control.locate().addTo(mymap);
+
 function overPassLayerDisplay (data, markerIcon) {
   for (let i = 0; i < data.elements.length; i++) {
     let pos;

@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require leaflet
 //= require leaflet-overpass-layer/dist/OverPassLayer.bundle.js
+//= require leaflet.locatecontrol/dist/L.Control.Locate.min.js
 // XXX Disabled require leaflet.markercluster/dist/leaflet.markercluster.js
 // XXX Disabled require leaflet.markercluster.layersupport/dist/leaflet.markercluster.layersupport.js
 //= require_tree .
