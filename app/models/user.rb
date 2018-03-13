@@ -64,11 +64,6 @@ class User < ApplicationRecord
     self.places = user_places
   end
 
-  def convert_city_to_poi(city)
-    puts "Converting from city #{city}"
-    city
-  end
-
   def places_list
     self.places.to_json
   end
