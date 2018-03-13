@@ -230,12 +230,21 @@ function registerState() {
 }
 
 window.addEventListener('custom/openedPopup', function (e) {
+  console.log('data when openining popup: ', e);
   latestPlace = e.detail;
 }, false);
 
 window.addEventListener('custom/addedPlace', function (e) {
-  addedPlaces.push(latestPlace);
-  registerState();
+  const poi = latestPlace.raw;
+
+  // Only add places which are meeting places
+  if (poi.type == "city" || poi.type == "administrative" || poi.osm_type == "relation") {
+    alert('Please add a more precise place where you can meet people.');
+  }
+  else {
+    addedPlaces.push(latestPlace);
+    registerState();
+  }
 }, false);
 
 // Allow to add interests directly to input
