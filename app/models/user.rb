@@ -42,10 +42,13 @@ class User < ApplicationRecord
     inputted_places = JSON.parse(value)
     puts "currents place: #{inputted_places}"
     user_places = []
+
+    # Filter out places which are not precise enough
+    inputted_places = inputted_places.reject do |place|
+      place['raw']['type'] == 'city' || place['raw']['type'] == 'administrative' || place['raw']['osm_type'] == 'relation'
+    end
+
     inputted_places.each do |place|
-      if place['raw']['type'] == 'city' || place['raw']['type'] == 'administrative'
-        pois = convert_city_to_poi(place)
-      end
       place['name'] = place['label'].split(',')[0] unless place['name']
       place['address'] = place['label'] unless place['address']
       place['latitude'] = place['y'].to_f unless place['latitude']
