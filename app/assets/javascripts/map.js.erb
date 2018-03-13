@@ -28,7 +28,15 @@ function popupTemplate(source, place, interests) {
   var address = full_address_array.join();
   var popup = `<div class="popup-label"><div class="name">${name}</div>`;
   popup += interests != undefined ? `<span class="interests">${interests.join(', ')}</span>` : ``;
-  popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  // Map data for data retrieved directly from OSM
+  if (place.raw) {
+    place.type = place.raw.type;
+    place.osm_type = place.raw.osm_type;
+  }
+  // Only display "add" button if the place is a meeting place
+  if (place.type != "city" && place.type != "administrative" && place.osm_type != "relation") {
+    popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  }
   return popup
 }
 
@@ -93,7 +101,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
 }).addTo(mymap);
 
-mymap.addControl(searchControl);
+L.control.locate().addTo(mymap);
 
 function overPassLayerDisplay (data, markerIcon) {
   for (let i = 0; i < data.elements.length; i++) {
@@ -228,7 +236,16 @@ window.addEventListener('custom/openedPopup', function (e) {
 }, false);
 
 window.addEventListener('custom/addedPlace', function (e) {
-  addedPlaces.push(latestPlace);
-  registerState();
+  const poi = latestPlace.raw ? latestPlace.raw : latestPlace;
+
+  // Only add places which are meeting places
+  if (poi.type == "city" || poi.type == "administrative" || poi.osm_type == "relation") {
+    alert('Please add a more precise place where you can meet people.');
+  }
+  else {
+    addedPlaces.push(latestPlace);
+    registerState();
+  }
 }, false);
+
 <% end %>

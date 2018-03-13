@@ -13,6 +13,10 @@ leaflet-overpass-layer@^2.8.2:
     js-clipper "^1.0.1"
     leaflet "^1.2.0"
 
+leaflet.locatecontrol@^0.62.0:
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/leaflet.locatecontrol/-/leaflet.locatecontrol-0.62.0.tgz#cf0c65170a87f2ed4b1a59e3307b773cd268d27d"
+
 leaflet.markercluster.layersupport@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/leaflet.markercluster.layersupport/-/leaflet.markercluster.layersupport-2.0.1.tgz#8d2d3d2e8c09f3a23c472de595cb759dfa448b96"
