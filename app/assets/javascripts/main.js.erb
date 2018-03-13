@@ -12,8 +12,6 @@ if (places_form) {
   registerState();
 }
 
-const provider = new window.GeoSearch.OpenStreetMapProvider();
-
 function addPlaceButton() {
   var event = new CustomEvent('custom/addedPlace');
   window.dispatchEvent(event);
@@ -77,16 +75,6 @@ const coffeeMarker = L.AwesomeMarkers.icon({
   prefix: 'fa'
 });
 
-const searchControl = new window.GeoSearch.GeoSearchControl({
-  provider: provider,
-  showPopup: true,
-  popupFormat: popupCallback,
-  style: 'bar',
-  maxMarkers: 5,
-  marker: { icon: placeMarker  },
-  keepResult: true
-});
-
 var mymap = L.map('mapid', {scrollWheelZoom: false}).setView([46.453, 3.318], 6);
 
 mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
@@ -98,8 +86,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
 }).addTo(mymap);
-
-mymap.addControl(searchControl);
 
 L.control.locate().addTo(mymap);
 
