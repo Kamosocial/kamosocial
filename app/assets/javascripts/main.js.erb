@@ -223,7 +223,7 @@ window.addEventListener('custom/openedPopup', function (e) {
 }, false);
 
 window.addEventListener('custom/addedPlace', function (e) {
-  const poi = latestPlace.raw;
+  const poi = latestPlace.raw ? latestPlace.raw : latestPlace;
 
   // Only add places which are meeting places
   if (poi.type == "city" || poi.type == "administrative" || poi.osm_type == "relation") {
