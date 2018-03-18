@@ -16,13 +16,15 @@ You want to give a hand? Thank you very much!
 
 - Ruby >=2.4.0
 - Bundler >=1.1.4.2
+- Yarn >=1.5.1
 
 ### Setup instructions
 
 1. Clone the repository to your computer
-2. Run `bundle install`
-3. Run the migrations `bin/rails db:migrate`
-4. Create a `.env` file and fill-in the following fields with your email parameters (it will allow you to send real emails in local):
+2. Run `bundle install --without production`
+3. Run `yarn install`
+4. Run the migrations `bin/rails db:migrate`
+5. Create a `.env` file and fill-in the following fields with your email parameters (it will allow you to send real emails in local):
 
 ```
 export MAILER_DOMAIN=
@@ -31,7 +33,35 @@ export MAILER_USERNAME=
 export MAILER_PASSWORD=
 ```
 
-5. Run the server `source .env && bin/rails server`
+You can put anything in `MAILER_DOMAIN`, it should be the website domain.
+For example, if you use Gmail, you could put these informations.
+
+```
+export MAILER_DOMAIN=development.kamo.social
+export MAILER_ADDRESS=smtp.gmail.com
+export MAILER_USERNAME=john.doe@gmail.com
+export MAILER_PASSWORD=JohnDo3sP4ssword
+```
+
+If you don't want to send real emails while in development environment, go to `config/environments/development.rb` and:
+ - Update this line: `config.action_mailer.raise_delivery_errors = false`
+ - Delete these lines:
+ ```
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: ENV["MAILER_ADDRESS"],
+    port: 587,
+    domain: ENV["MAILER_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["MAILER_USERNAME"],
+    password: ENV["MAILER_PASSWORD"]
+  }
+
+ ```
+
+6. Run the server `make serve` (it does `source .env && bin/rails server` under the hood)
 
 You now have the website up and running in local!
 
