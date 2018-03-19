@@ -1,5 +1,5 @@
 // Disable map in development environment by default
-<% if !Rails.env.development? %>
+<% if !Rails.env.development? || ENV["DEV_FORCE_DISPLAY_MAP"] == "enabled" %>
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
