@@ -1,3 +1,5 @@
+// Disable map in development environment by default
+<% if !Rails.env.development? %>
 var addedPlaceEvent = document.createEvent('Event');
 addedPlaceEvent.initEvent('custom/addedPlace', true, true);
 
@@ -229,3 +231,4 @@ window.addEventListener('custom/addedPlace', function (e) {
   addedPlaces.push(latestPlace);
   registerState();
 }, false);
+<% end %>
