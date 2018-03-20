@@ -11,7 +11,9 @@
     <p><%=t 'places.search_helper_html' %></p>
     <p><%=t 'places.caution' %></p>
     <%= f.hidden_field :places_list %>
-    <div id="mapid"></div>
+    <div id="mapid">
+      <p class="map-loading">The map has not been loaded</p>
+    </div>
     <ul id="added-places">
     </ul>
     <div class="buttons-line">

@@ -65,6 +65,16 @@ If you don't want to send real emails while in development environment, go to `c
 
 You now have the website up and running in local!
 
+## Developer Guide
+
+### Map
+
+As every display of the map adds onto a quota and costs money, the map is disabled by default in development mode.
+
+If you need to work on the map, you need to add the following environment variable before launching the server: `DEV_FORCE_DISPLAY_MAP=enabled`.
+
+If you switch the variable, you need to restart the server and edit the `map.js.erb` file in order for the modification to be taken into account.
+
 ## License
 
 Source code is licensed under the French [CeCILL](LICENSE.md) Free Software License.
