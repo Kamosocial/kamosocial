@@ -91,7 +91,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 L.control.locate().addTo(mymap);
 
-function overPassLayerDisplay (data, markerIcon) {
+var mcgLayerSupportGroup = L.markerClusterGroup.layerSupport();
+
+mcgLayerSupportGroup.addTo(mymap);
+
+cafeMarkersArray = [];
+pubMarkersArray = [];
+barMarkersArray = [];
+
+function overPassLayerDisplay (data, markerIcon, markersArray) {
   for (let i = 0; i < data.elements.length; i++) {
     let pos;
     let marker;
@@ -147,15 +155,17 @@ function overPassLayerDisplay (data, markerIcon) {
       });
     });
 
-    this._markers.addLayer(marker);
+    markersArray.push(marker);
   }
+  mcgLayerSupportGroup.clearLayers();
+  mcgLayerSupportGroup.addLayer(markersArray);
 }
 
 var pubsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="pub"];out;',
   onSuccess: function(data) {
     const displayBeer = overPassLayerDisplay.bind(this);
-    displayBeer(data, cutleryMarker);
+    displayBeer(data, cutleryMarker, pubMarkersArray);
   }
 });
 
@@ -163,7 +173,7 @@ var cafesLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="cafe"];out;',
   onSuccess: function(data) {
     const displayCoffee = overPassLayerDisplay.bind(this);
-    displayCoffee(data, coffeeMarker);
+    displayCoffee(data, coffeeMarker, cafeMarkersArray);
   }
 });
 
@@ -171,7 +181,7 @@ var barsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="bar"];out;',
   onSuccess: function(data) {
     const displayDrink = overPassLayerDisplay.bind(this);
-    displayDrink(data, drinkMarker);
+    displayDrink(data, drinkMarker, barMarkersArray);
   }
 });
 
