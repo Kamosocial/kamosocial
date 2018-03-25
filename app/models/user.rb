@@ -39,10 +39,16 @@ class User < ApplicationRecord
     if value.empty?
       raise ArgumentError, 'Please add at least one place'
     end
-    current_place = JSON.parse(value)
-    puts "currents place: #{current_place}"
+    inputted_places = JSON.parse(value)
+    puts "currents place: #{inputted_places}"
     user_places = []
-    current_place.each do |place|
+
+    # Filter out places which are not precise enough
+    inputted_places = inputted_places.reject do |place|
+      place['raw']['type'] == 'city' || place['raw']['type'] == 'administrative' || place['raw']['osm_type'] == 'relation'
+    end
+
+    inputted_places.each do |place|
       place['name'] = place['label'].split(',')[0] unless place['name']
       place['address'] = place['label'] unless place['address']
       place['latitude'] = place['y'].to_f unless place['latitude']

@@ -34,5 +34,5 @@ fr:
     add_button: "Éditer"
     title: "Éditez vos lieux"
     description: "Ajoutez des lieux près d'où vous vivez et où vous souhaiteriez rencontrer des personnes régulièrement. Chaque semaine, chaque mois, c'est selon vous. ;)"
-    search_helper_html: "Vous pouvez choisir parmi les lieux déjà enregistrés <span class=\"awesome-marker-icon-orange awesome-marker explanation-marker\"><i class=\"fa fa-comments  icon-white\"></i></span> ou chercher des lieux près de chez vous. Vous pouvez afficher les bars, cafés et pubs avec le sélecteur en haut à droite."
+    search_helper_html: "Vous pouvez choisir parmi les lieux déjà enregistrés <span class=\"awesome-marker-icon-orange awesome-marker explanation-marker\"><i class=\"fa fa-comments  icon-white\"></i></span> ou chercher des lieux près de chez vous. Vous pouvez utiliser le bouton de géolocalisation pour centrer la carte sur votre position (les données de géolocalisation ne sont pas transmises au serveur de Kamo.social) et vous pouvez afficher les bars, cafés et pubs avec le sélecteur en haut à droite."
     caution: "Et surtout, veillez à entrer un lieu précis pour que ce soit facile de se donner rendez-vous. ;)"

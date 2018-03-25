@@ -15,6 +15,7 @@
  *= require leaflet-overpass-layer/dist/OverPassLayer.css
  *= require leaflet.markercluster/dist/MarkerCluster.css
  *= require leaflet.markercluster/dist/MarkerCluster.Default.css
+ *= require leaflet.locatecontrol/dist/L.Control.Locate.min.css
  *= require font-awesome
  *= require_tree .
  *= require_self

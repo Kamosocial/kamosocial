@@ -14,8 +14,6 @@ if (places_form) {
   registerState();
 }
 
-const provider = new window.GeoSearch.OpenStreetMapProvider();
-
 function addPlaceButton() {
   var event = new CustomEvent('custom/addedPlace');
   window.dispatchEvent(event);
@@ -28,7 +26,15 @@ function popupTemplate(source, place, interests) {
   var address = full_address_array.join();
   var popup = `<div class="popup-label"><div class="name">${name}</div>`;
   popup += interests != undefined ? `<span class="interests">${interests.join(', ')}</span>` : ``;
-  popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  // Map data for data retrieved directly from OSM
+  if (place.raw) {
+    place.type = place.raw.type;
+    place.osm_type = place.raw.osm_type;
+  }
+  // Only display "add" button if the place is a meeting place
+  if (place.type != "city" && place.type != "administrative" && place.osm_type != "relation") {
+    popup += `<div class="address">${address}</div><button id="add-place" onclick="addPlaceButton()" type=button>Add</button></div>`;
+  }
   return popup
 }
 
@@ -71,16 +77,6 @@ const coffeeMarker = L.AwesomeMarkers.icon({
   prefix: 'fa'
 });
 
-const searchControl = new window.GeoSearch.GeoSearchControl({
-  provider: provider,
-  showPopup: true,
-  popupFormat: popupCallback,
-  style: 'bar',
-  maxMarkers: 5,
-  marker: { icon: placeMarker  },
-  keepResult: true
-});
-
 var mymap = L.map('mapid', {scrollWheelZoom: false}).setView([46.453, 3.318], 6);
 
 mymap.on('focus', function() { mymap.scrollWheelZoom.enable(); });
@@ -93,9 +89,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1Ijoia2lsbGlhbmtlbXBzIiwiYSI6ImNpa2Zqcmp6dzAwMW91dGttMXZwaXVlOXoifQ.sM4Mivt3C4b8lPGKzNorxQ'
 }).addTo(mymap);
 
-mymap.addControl(searchControl);
+L.control.locate().addTo(mymap);
 
-function overPassLayerDisplay (data, markerIcon) {
+var mcgLayerSupportGroup = L.markerClusterGroup.layerSupport();
+
+mcgLayerSupportGroup.addTo(mymap);
+
+cafeMarkersArray = [];
+pubMarkersArray = [];
+barMarkersArray = [];
+
+function overPassLayerDisplay (data, markerIcon, markersArray) {
   for (let i = 0; i < data.elements.length; i++) {
     let pos;
     let marker;
@@ -151,15 +155,17 @@ function overPassLayerDisplay (data, markerIcon) {
       });
     });
 
-    this._markers.addLayer(marker);
+    markersArray.push(marker);
   }
+  mcgLayerSupportGroup.clearLayers();
+  mcgLayerSupportGroup.addLayer(markersArray);
 }
 
 var pubsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="pub"];out;',
   onSuccess: function(data) {
     const displayBeer = overPassLayerDisplay.bind(this);
-    displayBeer(data, cutleryMarker);
+    displayBeer(data, cutleryMarker, pubMarkersArray);
   }
 });
 
@@ -167,7 +173,7 @@ var cafesLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="cafe"];out;',
   onSuccess: function(data) {
     const displayCoffee = overPassLayerDisplay.bind(this);
-    displayCoffee(data, coffeeMarker);
+    displayCoffee(data, coffeeMarker, cafeMarkersArray);
   }
 });
 
@@ -175,7 +181,7 @@ var barsLayer = new L.OverPassLayer({
   'query': 'node({{bbox}})["amenity"="bar"];out;',
   onSuccess: function(data) {
     const displayDrink = overPassLayerDisplay.bind(this);
-    displayDrink(data, drinkMarker);
+    displayDrink(data, drinkMarker, barMarkersArray);
   }
 });
 
@@ -228,7 +234,16 @@ window.addEventListener('custom/openedPopup', function (e) {
 }, false);
 
 window.addEventListener('custom/addedPlace', function (e) {
-  addedPlaces.push(latestPlace);
-  registerState();
+  const poi = latestPlace.raw ? latestPlace.raw : latestPlace;
+
+  // Only add places which are meeting places
+  if (poi.type == "city" || poi.type == "administrative" || poi.osm_type == "relation") {
+    alert('Please add a more precise place where you can meet people.');
+  }
+  else {
+    addedPlaces.push(latestPlace);
+    registerState();
+  }
 }, false);
+
 <% end %>
