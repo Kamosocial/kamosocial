@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+  - 2.4.0
+install:
+  - bundle install --without production
+  - yarn install
+script: make test
