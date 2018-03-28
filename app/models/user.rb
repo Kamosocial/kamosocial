@@ -44,9 +44,7 @@ class User < ApplicationRecord
     user_places = []
 
     # Filter out places which are not precise enough
-    inputted_places = inputted_places.reject do |place|
-      place['raw']['type'] == 'city' || place['raw']['type'] == 'administrative' || place['raw']['osm_type'] == 'relation'
-    end
+    inputted_places = filter_places(inputted_places)
 
     inputted_places.each do |place|
       place['name'] = place['label'].split(',')[0] unless place['name']
@@ -62,6 +60,13 @@ class User < ApplicationRecord
         .find_or_create_by(osm_id: place['osm_id'])
     end
     self.places = user_places
+  end
+
+  def filter_places(inputted_places)
+    inputted_places.reject do |place|
+      place = place['raw'] if place.has_key?("raw")
+      place['type'] == 'city' || place['type'] == 'administrative' || place['osm_type'] == 'relation'
+    end
   end
 
   def places_list
