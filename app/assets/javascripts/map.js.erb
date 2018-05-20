@@ -115,62 +115,65 @@ pubMarkersArray = [];
 barMarkersArray = [];
 
 function overPassLayerDisplay (data, markerIcon, markersArray) {
-  for (let i = 0; i < data.elements.length; i++) {
-    let pos;
-    let marker;
-    const e = data.elements[i];
+  // Avoid fetching new markers and adding them to the layer if they are already there
+  if (!markersArray.length > 0) {
+    for (let i = 0; i < data.elements.length; i++) {
+      let pos;
+      let marker;
+      const e = data.elements[i];
 
-    // Don't display elements if they don't even have a name
-    if (e.tags['name'] === undefined) {
-      continue;
-    }
+      // Don't display elements if they don't even have a name
+      if (e.tags['name'] === undefined) {
+        continue;
+      }
 
-    if (e.id in this._ids) {
-      continue;
-    }
+      if (e.id in this._ids) {
+        continue;
+      }
 
-    this._ids[e.id] = true;
+      this._ids[e.id] = true;
 
-    if (e.type === 'node') {
-      pos = new L.LatLng(e.lat, e.lon);
-    } else {
-      pos = new L.LatLng(e.center.lat, e.center.lon);
-    }
+      if (e.type === 'node') {
+        pos = new L.LatLng(e.lat, e.lon);
+      } else {
+        pos = new L.LatLng(e.center.lat, e.center.lon);
+      }
 
-    marker = L.marker(pos, { icon: markerIcon });
+      marker = L.marker(pos, { icon: markerIcon });
 
-    const popupContent = PoiPopupTemplate(e.tags, e.id);
-    const popup = L.popup().setContent(popupContent);
-    marker.bindPopup(popup);
-    marker.on('popupopen', function(popup) {
-      // Caution: According to MDN it is not supported on all browsers: https://developer.mozilla.org/en-US/docs/Web/API/Request
-      // May need to be replaced by XMLHttpRequest later on.
-      const addressRequest = new Request(`https://nominatim.openstreetmap.org/reverse?osm_type=N&osm_id=${e.id}&format=json&zoom=18`);
-      fetch(addressRequest)
-      .then(response => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          throw new Error('Something went wrong on api server!');
-        }
-      })
-      .then(response => {
-        e.tags['address'] = response['display_name'];
-        e.tags['osm_id'] = e['id'];
-        e.tags['latitude'] = e['lat'];
-        e.tags['longitude'] = e['lon'];
-        // Update latest place to be ready to be added
-        latestPlace = e.tags;
-        // Update popup with address
-        var popupContent = PoiPopupTemplate(e.tags, e.id);
-        this._popup.setContent(popupContent);
-        this._popup.update();
-      }).catch(error => {
-        console.error(error);
+      const popupContent = PoiPopupTemplate(e.tags, e.id);
+      const popup = L.popup().setContent(popupContent);
+      marker.bindPopup(popup);
+      marker.on('popupopen', function(popup) {
+        // Caution: According to MDN it is not supported on all browsers: https://developer.mozilla.org/en-US/docs/Web/API/Request
+        // May need to be replaced by XMLHttpRequest later on.
+        const addressRequest = new Request(`https://nominatim.openstreetmap.org/reverse?osm_type=N&osm_id=${e.id}&format=json&zoom=18`);
+        fetch(addressRequest)
+        .then(response => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            throw new Error('Something went wrong on api server!');
+          }
+        })
+        .then(response => {
+          e.tags['address'] = response['display_name'];
+          e.tags['osm_id'] = e['id'];
+          e.tags['latitude'] = e['lat'];
+          e.tags['longitude'] = e['lon'];
+          // Update latest place to be ready to be added
+          latestPlace = e.tags;
+          // Update popup with address
+          var popupContent = PoiPopupTemplate(e.tags, e.id);
+          this._popup.setContent(popupContent);
+          this._popup.update();
+        }).catch(error => {
+          console.error(error);
+        });
       });
-    });
 
-    markersArray.push(marker);
+      markersArray.push(marker);
+    }
   }
   mcgLayerSupportGroup.clearLayers();
   mcgLayerSupportGroup.addLayer(markersArray);
