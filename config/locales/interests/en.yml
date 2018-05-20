@@ -31,7 +31,7 @@
 
 en:
   interests:
-    add_button: "Edit"
+    add_button: "Save"
     title: "Edit interests"
     description_html: "Write a list of your interests in English, separated by commas (this \",\").<br/> Please try to order them by order of preference, meaning the most important first!"
     interests_picking: "Want to discover new interests? Here are some recently added by other members:"
