@@ -1,5 +1,7 @@
 # Kamo.social
 
+![Kamo.social](app/assets/images/logo_kamo_social.png)
+
 ## Presentation
 
 [Kamo.social](https://www.kamo.social/) is a website which allows you to meet other people based on their interests.
