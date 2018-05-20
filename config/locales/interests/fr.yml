@@ -31,7 +31,7 @@
 
 fr:
   interests:
-    add_button: "Éditer"
+    add_button: "Sauvegarder"
     title: "Éditez vos centres d'intérêts"
     description_html: "Écrivez une liste de vos centres d'intérêts en anglais, séparés par des virgules (ceci \",\").<br/> Ordonnez par ordre de préférence, c'est-à-dire le plus important en premier !"
     interests_picking: "Vous voulez découvrir de nouveux centres d'intérêts ? Voici une liste de quelques uns récemment ajoutés par d'autres membres :"
