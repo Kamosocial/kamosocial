@@ -15,7 +15,7 @@
 header {
   height: 75px;
   padding: 25px;
-  background-color: #F4D35E;
+  background-color: #FFDA4B;
 }
 
 #login-button, #session-dropdown {
@@ -28,7 +28,7 @@ header {
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
-  color: #F4D35E;
+  color: #FFDA4B;
   box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none;
@@ -51,7 +51,7 @@ header {
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
-  color: #F4D35E;
+  color: #FFDA4B;
   box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none;
@@ -63,7 +63,7 @@ header {
 }
 
 #lang-dropdown ul a, #session-dropdown ul a {
-  color: #F4D35E;
+  color: #FFDA4B;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.2rem;
