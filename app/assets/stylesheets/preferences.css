@@ -6,7 +6,7 @@
 .button {
   font-family: 'Kalam', sans-serif;
   font-size: 1.4rem;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
@@ -44,8 +44,8 @@
   padding: 15px 25px;
   margin: 10px;
   font-weight: bold;
-  border: 2px solid #1B998A;
-  color: #1B998A;
+  border: 2px solid #7CCFBE;
+  color: #7CCFBE;
   border-radius: 7px;
 }
 
@@ -59,7 +59,7 @@
 /*** DISABLED
 #interests-section #interests-list li:hover {
   color: white;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
 }
 ***/
 

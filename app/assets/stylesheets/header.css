@@ -4,7 +4,7 @@
   font-weight: bold;
   color: #fff;
   margin: 0;
-  text-shadow: 4px 4px 1px #1B998A;
+  text-shadow: 4px 4px 1px #7CCFBE;
 }
 
 #logo a {
@@ -24,7 +24,7 @@ header {
   position: absolute;
   right: 30px;
   top: 30px;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
@@ -47,7 +47,7 @@ header {
   right: 220px;
   top: 30px;
   width: 110px;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
