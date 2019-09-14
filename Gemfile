@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'devise', '~> 4.4.0'
+gem 'devise', '~> 4.7.1'
 gem 'devise-i18n', '~> 1.5.0'
 
 gem 'simple_form', '~> 3.5.0'

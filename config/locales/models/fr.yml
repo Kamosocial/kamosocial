@@ -43,3 +43,6 @@ fr:
               blank: "le mot de passe courant ne peut pas être vide"
             username:
               too_short: "le nom d'utilisateur est trop court (doit faire au moins %{count} caractères)"
+            confirmation_token:
+              blank: "est vide"
+              invalid: "est invalide"

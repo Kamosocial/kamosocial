@@ -43,3 +43,6 @@ en:
               blank: "current password can't be blank"
             username:
               too_short: "username is too short (minimum is %{count} characters)"
+            confirmation_token:
+              blank: "is blank"
+              invalid: "is invalid"

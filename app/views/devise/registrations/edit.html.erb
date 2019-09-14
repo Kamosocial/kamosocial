@@ -1,7 +1,7 @@
 <div id="devise-page">
   <h2><%= t(".title", resource: resource_class.model_name.human) %></h2>
 
-  <%= devise_error_messages! %>
+  <%= render "devise/shared/error_messages" %>
 
   <% if flash[:notice] %>
     <div class="flash notice"><i class="fa fa-info-circle" aria-hidden="true"></i><%= flash[:notice] %></div>
