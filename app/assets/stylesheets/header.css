@@ -4,7 +4,7 @@
   font-weight: bold;
   color: #fff;
   margin: 0;
-  text-shadow: 4px 4px 1px #1B998A;
+  text-shadow: 4px 4px 1px #7CCFBE;
 }
 
 #logo a {
@@ -15,7 +15,7 @@
 header {
   height: 75px;
   padding: 25px;
-  background-color: #F4D35E;
+  background-color: #FFDA4B;
 }
 
 #login-button, #session-dropdown {
@@ -24,11 +24,11 @@ header {
   position: absolute;
   right: 30px;
   top: 30px;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
-  color: #F4D35E;
+  color: #FFDA4B;
   box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none;
@@ -47,11 +47,11 @@ header {
   right: 220px;
   top: 30px;
   width: 110px;
-  background-color: #1B998A;
+  background-color: #7CCFBE;
   border: none;
   padding: 10px 30px;
   border-radius: 7px;
-  color: #F4D35E;
+  color: #FFDA4B;
   box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none;
@@ -63,7 +63,7 @@ header {
 }
 
 #lang-dropdown ul a, #session-dropdown ul a {
-  color: #F4D35E;
+  color: #FFDA4B;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.2rem;
